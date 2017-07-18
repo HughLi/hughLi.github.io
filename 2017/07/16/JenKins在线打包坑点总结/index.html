@@ -15,16 +15,16 @@
   
   <title>JenKins在线打包坑点总结 | 紫莯</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JenKins iOS在线打包 坑点备忘1. 证书配置1. 文件配置中的版本号要和Xcode所描述的版本号完全一致 2. 设置的provision_profile 是在线平台给配置的,在配置的时候是平台使用平台上面的证书预先为项目申请了bundleID 所以BundleID 和provision_profile都将是由平台提供 3. 项目所能支持的最低的iOS版本是要和Xcode上面的完全一致 4">
+  <meta name="description" content="JenKins iOS在线打包 坑点备忘1. 证书配置1. 文件配置中的版本号要和Xcode所描述的版本号完全一致 2. 设置的provision_profile 是在线平台给配置的,在配置的时候是平台使用平台上面的证书预先为项目申请了bundleID 所以BundleID 和provision_profile都将是由平台提供 3. 项目所能支持的最低的iOS版本是要和Xcode上面的完全一致">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JenKins在线打包坑点总结">
 <meta property="og:url" content="http://zimu.tk/2017/07/16/JenKins在线打包坑点总结/index.html">
 <meta property="og:site_name" content="紫莯">
-<meta property="og:description" content="JenKins iOS在线打包 坑点备忘1. 证书配置1. 文件配置中的版本号要和Xcode所描述的版本号完全一致 2. 设置的provision_profile 是在线平台给配置的,在配置的时候是平台使用平台上面的证书预先为项目申请了bundleID 所以BundleID 和provision_profile都将是由平台提供 3. 项目所能支持的最低的iOS版本是要和Xcode上面的完全一致 4">
+<meta property="og:description" content="JenKins iOS在线打包 坑点备忘1. 证书配置1. 文件配置中的版本号要和Xcode所描述的版本号完全一致 2. 设置的provision_profile 是在线平台给配置的,在配置的时候是平台使用平台上面的证书预先为项目申请了bundleID 所以BundleID 和provision_profile都将是由平台提供 3. 项目所能支持的最低的iOS版本是要和Xcode上面的完全一致">
 <meta property="og:updated_time" content="2017-07-16T10:53:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JenKins在线打包坑点总结">
-<meta name="twitter:description" content="JenKins iOS在线打包 坑点备忘1. 证书配置1. 文件配置中的版本号要和Xcode所描述的版本号完全一致 2. 设置的provision_profile 是在线平台给配置的,在配置的时候是平台使用平台上面的证书预先为项目申请了bundleID 所以BundleID 和provision_profile都将是由平台提供 3. 项目所能支持的最低的iOS版本是要和Xcode上面的完全一致 4">
+<meta name="twitter:description" content="JenKins iOS在线打包 坑点备忘1. 证书配置1. 文件配置中的版本号要和Xcode所描述的版本号完全一致 2. 设置的provision_profile 是在线平台给配置的,在配置的时候是平台使用平台上面的证书预先为项目申请了bundleID 所以BundleID 和provision_profile都将是由平台提供 3. 项目所能支持的最低的iOS版本是要和Xcode上面的完全一致">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -79,13 +79,13 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/16/JenKins在线打包坑点总结/" data-id="cj56m5y1x00012k2w4nuz1if9" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/16/JenKins在线打包坑点总结/" data-id="cj59emia100001v2w3y3fu7bc" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h4 id="JenKins-iOS在线打包-坑点备忘"><a href="#JenKins-iOS在线打包-坑点备忘" class="headerlink" title="JenKins iOS在线打包 坑点备忘"></a>JenKins iOS在线打包 坑点备忘</h4><h5 id="1-证书配置"><a href="#1-证书配置" class="headerlink" title="1. 证书配置"></a>1. 证书配置</h5><pre><code>1. 文件配置中的版本号要和Xcode所描述的版本号完全一致
+        <script src="/assets/js/APlayer.min.js"> </script><h4 id="JenKins-iOS在线打包-坑点备忘"><a href="#JenKins-iOS在线打包-坑点备忘" class="headerlink" title="JenKins iOS在线打包 坑点备忘"></a>JenKins iOS在线打包 坑点备忘</h4><h5 id="1-证书配置"><a href="#1-证书配置" class="headerlink" title="1. 证书配置"></a>1. 证书配置</h5><pre><code>1. 文件配置中的版本号要和Xcode所描述的版本号完全一致
 2. 设置的provision_profile 是在线平台给配置的,在配置的时候是平台使用平台上面的证书预先为项目申请了bundleID 所以BundleID 和provision_profile都将是由平台提供
 3. 项目所能支持的最低的iOS版本是要和Xcode上面的完全一致
 4. 目前公司的在线打包平台所配置的对文件结构有比较严格的要求,要求运行包必须在包里面.XCodeProj也就是SVN/Git的文件目录为/Proj/Proj/.xCodeProj...
@@ -121,6 +121,8 @@
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
+        <span class="nav-previous"><a href="/2017/07/18/react-native-8081端口被mcafee霸占后如何搬家/" rel="prev"><span class="meta-nav">←</span> react-native 8081端口被mcafee霸占后如何搬家</a></span>
+    
     
         <span class="nav-next"><a href="/2017/07/13/iOS安全培训/" rel="next">iOS安全培训 <span class="meta-nav">→</span></a></span>
     
@@ -151,6 +153,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget-content">
       <ul>
+        
+          <li>
+            <a href="/2017/07/18/react-native-8081端口被mcafee霸占后如何搬家/">react-native 8081端口被mcafee霸占后如何搬家</a>
+          </li>
         
           <li>
             <a href="/2017/07/16/JenKins在线打包坑点总结/">JenKins在线打包坑点总结</a>

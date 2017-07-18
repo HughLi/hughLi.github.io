@@ -65,6 +65,82 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-react-native-8081端口被mcafee霸占后如何搬家" class="post-react-native-8081端口被mcafee霸占后如何搬家 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/07/18/react-native-8081端口被mcafee霸占后如何搬家/">react-native 8081端口被mcafee霸占后如何搬家</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/18/react-native-8081端口被mcafee霸占后如何搬家/" data-id="cj59emiac00021v2wzat1xxmp" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h5 id="在有些公司电脑上出于内部安全管理的原因-电脑上安装了McAfee-所以8081端口基本就算是废了-该端口会被McAfee一直霸占着-关掉进程后也没辙-关掉后会自动开启新的进程"><a href="#在有些公司电脑上出于内部安全管理的原因-电脑上安装了McAfee-所以8081端口基本就算是废了-该端口会被McAfee一直霸占着-关掉进程后也没辙-关掉后会自动开启新的进程" class="headerlink" title="在有些公司电脑上出于内部安全管理的原因,电脑上安装了McAfee,所以8081端口基本就算是废了,该端口会被McAfee一直霸占着,关掉进程后也没辙,关掉后会自动开启新的进程"></a>在有些公司电脑上出于内部安全管理的原因,电脑上安装了McAfee,所以8081端口基本就算是废了,该端口会被McAfee一直霸占着,关掉进程后也没辙,关掉后会自动开启新的进程</h5><h4 id="react-native默认的打包端口也是8081-这个时候-这个端口冲突会导致一系列奇奇怪怪的BUG-现在-让我们來一起解决下这个问题吧"><a href="#react-native默认的打包端口也是8081-这个时候-这个端口冲突会导致一系列奇奇怪怪的BUG-现在-让我们來一起解决下这个问题吧" class="headerlink" title="react-native默认的打包端口也是8081,这个时候,这个端口冲突会导致一系列奇奇怪怪的BUG,现在,让我们來一起解决下这个问题吧"></a>react-native默认的打包端口也是8081,这个时候,这个端口冲突会导致一系列奇奇怪怪的BUG,现在,让我们來一起解决下这个问题吧</h4><blockquote>
+<p>按照react-native 新建工程的流程,完成新建工作</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">react-native init newProj</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在终端直接运行</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd newProj</div><div class="line">react-native run-ios</div></pre></td></tr></table></figure>
+<blockquote>
+<p>终端上面出现报错日志如下</p>
+</blockquote>
+<p><img src="http://ostglltzu.bkt.clouddn.com/17-7-18/23859563.jpg" alt="">    </p>
+<blockquote>
+<p>我们现在在Xcode中打开查看下报错的错误日志</p>
+</blockquote>
+<p><img src="http://ostglltzu.bkt.clouddn.com/17-7-18/43005869.jpg" alt=""></p>
+<blockquote>
+<p>可以看出来 是由于端口被占用导致的打包失败<br>现在我们开始来修改端口给react-native 换个port 搬个家吧</p>
+</blockquote>
+<ol>
+<li>首先修改Xcode内的管理端口的代码,我们来command+shift+f 全局搜索8081<br><img src="http://ostglltzu.bkt.clouddn.com/17-7-18/51946558.jpg" alt=""></li>
+<li>然后 我们全部将他们改为8083</li>
+<li>之后我们来看看React.xcodeproj 这个文件的脚本里面还藏着一个端口的信息呢<br><img src="http://ostglltzu.bkt.clouddn.com/17-7-18/40410071.jpg" alt=""></li>
+<li>现在我们再来研究下包里面的文件</li>
+<li><p>/RNProj/node_modules/react-native/local-cli/server/server.js 里面修改端口<br><img src="http://ostglltzu.bkt.clouddn.com/17-7-18/39777334.jpg" alt=""></p>
+</li>
+<li><p>/newProj/node_modules/react-native/Libraries/Core/Devtools/getDevServer.js 里面再来修改一个</p>
+</li>
+</ol>
+<p><img src="http://ostglltzu.bkt.clouddn.com/17-7-18/41350170.jpg" alt=""></p>
+<blockquote>
+<p>现在我们再来运行看看吧</p>
+</blockquote>
+<p><img src="http://ostglltzu.bkt.clouddn.com/17-7-18/7281702.jpg" alt=""></p>
+<h5 id="好了-已经成功运行了"><a href="#好了-已经成功运行了" class="headerlink" title="好了,已经成功运行了;"></a>好了,已经成功运行了;</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">react-native-cli: 2.0.1</div><div class="line">react-native: 0.46.4</div></pre></td></tr></table></figure>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/07/18/react-native-8081端口被mcafee霸占后如何搬家/">
+    <time datetime="2017-07-18T09:07:53.000Z" class="entry-date">
+        2017-07-18
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-JenKins在线打包坑点总结" class="post-JenKins在线打包坑点总结 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -80,13 +156,13 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/16/JenKins在线打包坑点总结/" data-id="cj56m5y1x00012k2w4nuz1if9" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/16/JenKins在线打包坑点总结/" data-id="cj59emia100001v2w3y3fu7bc" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h4 id="JenKins-iOS在线打包-坑点备忘"><a href="#JenKins-iOS在线打包-坑点备忘" class="headerlink" title="JenKins iOS在线打包 坑点备忘"></a>JenKins iOS在线打包 坑点备忘</h4><h5 id="1-证书配置"><a href="#1-证书配置" class="headerlink" title="1. 证书配置"></a>1. 证书配置</h5><pre><code>1. 文件配置中的版本号要和Xcode所描述的版本号完全一致
+        <script src="/assets/js/APlayer.min.js"> </script><h4 id="JenKins-iOS在线打包-坑点备忘"><a href="#JenKins-iOS在线打包-坑点备忘" class="headerlink" title="JenKins iOS在线打包 坑点备忘"></a>JenKins iOS在线打包 坑点备忘</h4><h5 id="1-证书配置"><a href="#1-证书配置" class="headerlink" title="1. 证书配置"></a>1. 证书配置</h5><pre><code>1. 文件配置中的版本号要和Xcode所描述的版本号完全一致
 2. 设置的provision_profile 是在线平台给配置的,在配置的时候是平台使用平台上面的证书预先为项目申请了bundleID 所以BundleID 和provision_profile都将是由平台提供
 3. 项目所能支持的最低的iOS版本是要和Xcode上面的完全一致
 4. 目前公司的在线打包平台所配置的对文件结构有比较严格的要求,要求运行包必须在包里面.XCodeProj也就是SVN/Git的文件目录为/Proj/Proj/.xCodeProj...
@@ -138,13 +214,13 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/13/iOS安全培训/" data-id="cj56m5y1z00022k2wrjz5dja5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/13/iOS安全培训/" data-id="cj59emiae00041v2wio38ulbp" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h3 id="iOS-安全"><a href="#iOS-安全" class="headerlink" title="iOS 安全"></a>iOS 安全</h3><h4 id="非越狱状态的安全程度"><a href="#非越狱状态的安全程度" class="headerlink" title="非越狱状态的安全程度"></a>非越狱状态的安全程度</h4><h4 id="越狱情况下的安全程度"><a href="#越狱情况下的安全程度" class="headerlink" title="越狱情况下的安全程度"></a>越狱情况下的安全程度</h4><h4 id="安全开发Tips"><a href="#安全开发Tips" class="headerlink" title="安全开发Tips"></a>安全开发Tips</h4><hr>
+        <script src="/assets/js/APlayer.min.js"> </script><h3 id="iOS-安全"><a href="#iOS-安全" class="headerlink" title="iOS 安全"></a>iOS 安全</h3><h4 id="非越狱状态的安全程度"><a href="#非越狱状态的安全程度" class="headerlink" title="非越狱状态的安全程度"></a>非越狱状态的安全程度</h4><h4 id="越狱情况下的安全程度"><a href="#越狱情况下的安全程度" class="headerlink" title="越狱情况下的安全程度"></a>越狱情况下的安全程度</h4><h4 id="安全开发Tips"><a href="#安全开发Tips" class="headerlink" title="安全开发Tips"></a>安全开发Tips</h4><hr>
 <h5 id="在非越狱状况下我们能做什么？"><a href="#在非越狱状况下我们能做什么？" class="headerlink" title="在非越狱状况下我们能做什么？"></a>在非越狱状况下我们能做什么？</h5><p>固件级别：设备秘钥 ，组秘钥 ，Apple根证书<br>        加密引擎 ， 内核（安全加密芯片，安全元件）</p>
 <p>软件：文件系统 ， 操作系统分区 ，用户分区 ，sandbox</p>
 <p>越狱后 可以修改底层的东西</p>
@@ -185,7 +261,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/12/hello-world/" data-id="cj56m5y1t00002k2wv3jg5v01" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/12/hello-world/" data-id="cj59emia800011v2wurkrphpa" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -230,13 +306,13 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/06/今天写点啥呢-随便写点吧/" data-id="cj56m5y2100032k2w2wzs1qi7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/06/今天写点啥呢-随便写点吧/" data-id="cj59emiad00031v2wh1kz0svz" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>今天来写点投资吧,毕竟我可是理财学专业的,O(∩_∩)O哈哈~<br>最近区块链火到不行,追其究竟,无外乎是楼市限购,A股熊熊,中国大妈手里的钱耐不住寂寞,所以比特币成为了新宠.<br>想起当年A股被腰斩割韭菜,还是痴心不改的我也挺身入链,几手交易后血本无归.想起股神的话:”在惶恐中建仓,在盛世中减持”,麻蛋,都是亏了后才想起….</p>
+        <script src="/assets/js/APlayer.min.js"> </script><p>今天来写点投资吧,毕竟我可是理财学专业的,O(∩_∩)O哈哈~<br>最近区块链火到不行,追其究竟,无外乎是楼市限购,A股熊熊,中国大妈手里的钱耐不住寂寞,所以比特币成为了新宠.<br>想起当年A股被腰斩割韭菜,还是痴心不改的我也挺身入链,几手交易后血本无归.想起股神的话:”在惶恐中建仓,在盛世中减持”,麻蛋,都是亏了后才想起….</p>
 <p>  讲真,毕竟年事已高,咳咳,所以投资增值还是很有必要的,收入的30%作为风险投资,30%作为保险和稳妥理财,这个是最基本的财务规划,目前个人在基金方面做的定投,每日定投可以穿越牛熊,同时,作为剁手党和月光族,强制储蓄也是很有必要的,感谢阿里的梦想储蓄,每周几百大洋还是能存下来.</p>
 <p>  再谈谈最近区块链的心得吧,这个东西 真的要心大才能玩,7*24小时不间断交易,一觉醒来被腰斩了,更可怕的是没有跌停涨停,交易平台多,注定了每个盘子都不是很大(相较于A股)所以庄家很容易一波带走,这就是一场赌博吧,尤其是最近的ICO,找几个人,连夜搞个白皮书,再搞份代码,搞个概念就能新币众筹上市了,真他妈的融资毫无技术难度啊,<del>(&gt;_&lt;)</del>,有没有哪位兄弟要一起搞起,我们有知名投资人白子画领衔的锁天链即将ICO,O(∩_∩)O哈哈~</p>
 <p>   按照金融市场学的分析方法,比特币作为稀缺资源有其固有价值,但是因为其并无任何信用背书,全凭粉丝热情和各国大妈的投机,这样对整个区块链来讲绝对是不利的,有其是ICO的出现,相信国家的大宝剑就要落下啦,各位还是入袋为安才好,狗庄的消息绝对比各位小散韭菜来得快也靠谱得多,到时候韭菜做成饺子就宛如我满仓中国重工啦.</p>
@@ -282,6 +358,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget-content">
       <ul>
+        
+          <li>
+            <a href="/2017/07/18/react-native-8081端口被mcafee霸占后如何搬家/">react-native 8081端口被mcafee霸占后如何搬家</a>
+          </li>
         
           <li>
             <a href="/2017/07/16/JenKins在线打包坑点总结/">JenKins在线打包坑点总结</a>
