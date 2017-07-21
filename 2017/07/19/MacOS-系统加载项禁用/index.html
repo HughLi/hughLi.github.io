@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="人之一生如负重远行，欲速则不达" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>MacOS 系统加载项禁用 | 紫莯</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Mac OS启动服务优化高级篇（launchd tuning）Mac下的启动服务主要有三个地方可配置：1，系统偏好设置-&amp;gt;帐户-&amp;gt;登陆项2，/System/Library/StartupItems 和 /Library/StartupItems/3，launchd 系统初始化进程配置。 前两种优化比较简单，本文主要介绍的是第三种更为复杂的launchd配置优化。launchd是Mac">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MacOS 系统加载项禁用">
+<meta property="og:url" content="http://zimu.tk/2017/07/19/MacOS-系统加载项禁用/index.html">
+<meta property="og:site_name" content="紫莯">
+<meta property="og:description" content="Mac OS启动服务优化高级篇（launchd tuning）Mac下的启动服务主要有三个地方可配置：1，系统偏好设置-&amp;gt;帐户-&amp;gt;登陆项2，/System/Library/StartupItems 和 /Library/StartupItems/3，launchd 系统初始化进程配置。 前两种优化比较简单，本文主要介绍的是第三种更为复杂的launchd配置优化。launchd是Mac">
+<meta property="og:updated_time" content="2017-07-19T03:01:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MacOS 系统加载项禁用">
+<meta name="twitter:description" content="Mac OS启动服务优化高级篇（launchd tuning）Mac下的启动服务主要有三个地方可配置：1，系统偏好设置-&amp;gt;帐户-&amp;gt;登陆项2，/System/Library/StartupItems 和 /Library/StartupItems/3，launchd 系统初始化进程配置。 前两种优化比较简单，本文主要介绍的是第三种更为复杂的launchd配置优化。launchd是Mac">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="紫莯" rel="home">紫莯</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-MacOS-系统加载项禁用" class="post-MacOS-系统加载项禁用 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      MacOS 系统加载项禁用
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/19/MacOS-系统加载项禁用/" data-id="cj5dg4du300014i2weca5nbr8" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><p>Mac OS启动服务优化高级篇（launchd tuning）<br>Mac下的启动服务主要有三个地方可配置：<br>1，系统偏好设置-&gt;帐户-&gt;登陆项<br>2，/System/Library/StartupItems 和 /Library/StartupItems/<br>3，launchd 系统初始化进程配置。</p>
+<p>前两种优化比较简单，本文主要介绍的是第三种更为复杂的launchd配置优化。<br>launchd是Mac OS下，用于初始化系统环境的关键进程。类似Linux下的init, rc。</p>
+<p>我们先来看一下Mac OS X的启动原理：<br>1，mac固件激活，初始化硬件，加载BootX引导器。<br>2，BootX加载内核与内核扩展(kext)。<br>3，内核启动launchd进程。<br>4，launchd根据 ?/System/Library/LaunchAgents ,?/System/Library/LaunchDaemons , ?/Library/LaunchDaemons,?Library/LaunchAgents , ~/Library/LaunchAgents?里的plist配置，启动服务守护进程。</p>
+<p>看完了Mac OS X的启动原理，我们不难发觉?/System/Library/LaunchAgents ,?/System/Library/LaunchDaemons , ?/Library/LaunchDaemons,?Library/LaunchAgents?五个目录下的plist属性文件是优化系统的关键。</p>
+<p>下面再来理解几个基础概念：<br>/System/Library和/Library和~/Library目录的区别？<br>/System/Library目录是存放Apple自己开发的软件。<br>/Library目录是系统管理员存放的第三方软件。<br>~/Library/是用户自己存放的第三方软件。</p>
+<p>LaunchDaemons和LaunchAgents的区别？<br>LaunchDaemons是用户未登陆前就启动的服务（守护进程）。<br>LaunchAgents是用户登陆后启动的服务（守护进程）。</p>
+<p>上面提到的五个目录下的plist文件格式及每个字段的含义：</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Label</td>
+<td>The name of the job</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ProgramArguments</td>
+<td>Strings to pass to the program when it is executed</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>UserName</td>
+<td>The job will be run as the given user, who may not necessarily be the one who submitted it to launchd.</td>
+<td>no</td>
+</tr>
+<tr>
+<td>inetdCompatibility</td>
+<td>Indicates that the daemon expects to be run as if it were launched by?inetd</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Program</td>
+<td>The path to your executable. This key can save the ProgramArguments key for flags and arguments.</td>
+<td>no</td>
+</tr>
+<tr>
+<td>onDemand</td>
+<td>A?boolean?flag that defines if a job runs continuously or not</td>
+<td>no</td>
+</tr>
+<tr>
+<td>RootDirectory</td>
+<td>The job will be?chrooted?into another directory</td>
+<td>no</td>
+</tr>
+<tr>
+<td>ServiceIPC</td>
+<td>Whether the daemon can speak IPC to launchd</td>
+<td>no</td>
+</tr>
+<tr>
+<td>WatchPaths</td>
+<td>Allows launchd to start a job based on modifications at a file-system path</td>
+<td>no</td>
+</tr>
+<tr>
+<td>QueueDirectories</td>
+<td>Similar to WatchPath, a queue will only watch an empty directory for new files</td>
+<td>no</td>
+</tr>
+<tr>
+<td>StartInterval</td>
+<td>Used to schedule a job that runs on a repeating schedule. Specified as the number of seconds to wait between runs.</td>
+<td>no</td>
+</tr>
+<tr>
+<td>StartCalendarInterval</td>
+<td>Job scheduling. The?syntax?is similar to?cron.</td>
+<td>no</td>
+</tr>
+<tr>
+<td>HardResourceLimits</td>
+<td>Controls restriction of the resources consumed by any job</td>
+<td>no</td>
+</tr>
+<tr>
+<td>LowPriorityIO</td>
+<td>Tells the kernel that this task is of a low priority when doing file system I/O</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Sockets</td>
+<td>An array can be used to specify what socket the daemon will listen on for launch on demand</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<p>看不懂上面地plist配置吗？没关系，我们的优化策略是完全卸载服务，所以我们不用关心plist里的配置含义。</p>
+<p>开始优化<br>禁用服务，我们需要用到Mac OS提供的一个工具指令－launchctl<br>launchctl 指令会针对服务设置一个禁用标志，launchd启动时会先检查这个服务是否被禁用，从而确定是否需要启用这个服务。</p>
+<p>禁用服务的方法1<br>先找到禁用标志文件 /var/db/launchd.db/com.apple.launchd/overrides.plist，查看你要禁用的服务是否已被禁用了。<br>有些服务已被禁用，但未列在overrides.plist里。此时，你还需要检查这个服务的plist文件Label字段是否已经标记为 Disable。</p>
+<p>确认这个服务未禁用后，我们就可以通过调用如下命令，来禁用服务：<br>sudo launchctl unload plist文件路径<br>sudo launchctl unload -w?plist文件路径<br>比如，我想禁用spotlight，则输入<br>sudo launchctl unload?/System/Library/LaunchAgents/com.apple.Spotlight.plist<br>sudo launchctl unload -w?/System/Library/LaunchAgents/com.apple.Spotlight.plist</p>
+<p>禁用完服务以后，重启Mac OS即可生效。</p>
+<p>禁用服务的方法2，一种更有效且暴力的方法（推荐）<br>先卸载服务<br>sudo launchctl unload /System/Library/LaunchAgents/com.apple.Spotlight.plist<br>然后将plist文件mv到其他目录备份。重启。搞定。是不是很简单!</p>
+<p>我个人比较喜欢这种禁用服务的方式，所以推荐一下。</p>
+<p>如果发现服务禁用后，系统或软件出现异常，可以通过如下命令，还原服务：<br>方法1:<br>sudo launchctl load -wF?plist文件路径<br>方法2:<br>将备份的plist文件mv回原来的文件夹。<br>sudo launchctl load plist文件路径</p>
+<p>注意：系统级服务的禁用要异常小心，请在禁用前google，确保你熟知这个服务的作用。否则可能导致系统无法启动。<br>最安全的做法就是不要去禁用它了。</p>
+<p>当然，用户服务我们还是可以放心禁用的，有问题最多再启用呗。</p>
+<p>下面是我禁用的服务列表：<br>/System/Library/LaunchDaemons/com.apple.metadata.mds.plist (禁用spotlight的前提)<br>/System/Library/LaunchAgents/com.apple.Spotlight.plist (Spotlight)<br>/Library/LaunchDaemons/com.google.keystone.daemon.plist ?(Google Software Update)<br>/Library/LaunchAgents/com.google.keystone.root.agent ?(Google Software Update)<br>~/Library/LaunchAgents/com.google.keystone.agent.plist?(Google Software Update，用户下的进程不需要加 sudo)<br>~/Library/LaunchAgents/com.apple.CSConfigDotMacCert-ken.wug\@me.com-SharedServices.Agent.plist (me.com的共享服务，我不用)<br>/System/Library/LaunchDaemons/org.cups.cupsd.plist （打印机）<br>/System/Library/LaunchDaemons/org.cups.cups-lpd.plist （打印机）<br>/System/Library/LaunchDaemons/com.apple.blued.plist （蓝牙）<br>/System/Library/LaunchAgents/com.apple.AirPortBaseStationAgent.plist （apple无线基站，我没有这个设备）</p>
+<p>知道守护进程（服务）名，如何找到对应的plist文件？<br>将进程（服务）名拷贝，然后到 /System/Library/LaunchAgents ,?/System/Library/LaunchDaemons , ?/Library/LaunchDaemons,?Library/LaunchAgents , ~/Library/LaunchAgents 五个目录里，通过以下命令查找：</p>
+<p>ll|grep 进程(服务)名<br>比如<br>ll|grep blued<br>在 ?/System/Library/LaunchDaemons 中找到了它。接下来，请按上面指导的步骤，禁用该服务</p>
+<p>比如McAfee的禁用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /Library/LaunchDaemons</div><div class="line">sudo launchctl unload com.mcafee.agent.macmn.plist</div></pre></td></tr></table></figure>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/07/19/MacOS-系统加载项禁用/">
+    <time datetime="2017-07-19T02:54:50.000Z" class="entry-date">
+        2017-07-19
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2017/07/20/Python-在Mac-上的多版本管理及pip安装/" rel="prev"><span class="meta-nav">←</span> Python 在Mac 上的多版本管理及pip安装</a></span>
+    
+    
+        <span class="nav-next"><a href="/2017/07/18/react-native-8081端口被mcafee霸占后如何搬家/" rel="next">react-native 8081端口被mcafee霸占后如何搬家 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2017/07/21/Pod-search-找不到库的解决方案/">Pod search 找不到库的解决方案</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/20/Python-在Mac-上的多版本管理及pip安装/">Python 在Mac 上的多版本管理及pip安装</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/19/MacOS-系统加载项禁用/">MacOS 系统加载项禁用</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/18/react-native-8081端口被mcafee霸占后如何搬家/">react-native 8081端口被mcafee霸占后如何搬家</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/16/JenKins在线打包坑点总结/">JenKins在线打包坑点总结</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2017 Hugh Lee
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
