@@ -65,6 +65,108 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-CoreML-和TensorFlow的安装运行" class="post-CoreML-和TensorFlow的安装运行 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/08/07/CoreML-和TensorFlow的安装运行/">CoreML 和TensorFlow的安装运行</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/07/CoreML-和TensorFlow的安装运行/" data-id="cj61xed2t0000ks2w6mamlre4" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h3 id="1-CoreML-Apple训练模型测试"><a href="#1-CoreML-Apple训练模型测试" class="headerlink" title="1. CoreML Apple训练模型测试"></a>1. CoreML Apple训练模型测试</h3><ol>
+<li>先下载下来.mlmodel文件并拖入工程中<p><a href="https://developer.apple.com/machine-learning/" target="_blank" rel="external">下载链接</a></p><br><p><img src="http://ostglltzu.bkt.clouddn.com/17-8-7/2674477.jpg" alt=""></p><br><mark>此处要注意 ,如果没有出现上图Model Class的箭头需要勾选下图内容<mark><p><img src="http://ostglltzu.bkt.clouddn.com/17-8-7/71022914.jpg" alt=""></p></mark></mark></li>
+<li>导入CoreML库文件<br><img src="http://ostglltzu.bkt.clouddn.com/17-8-7/51996763.jpg" alt=""></li>
+<li>编写代码<br><img src="http://ostglltzu.bkt.clouddn.com/17-8-7/64366435.jpg" alt=""></li>
+</ol>
+<h3 id="2-TensorFlow-安装"><a href="#2-TensorFlow-安装" class="headerlink" title="2. TensorFlow 安装"></a>2. TensorFlow 安装</h3><p>我使用的是容器安装的方式</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$ sudo easy_install pip  <span class="comment"># 如果还没有安装 pip</span></div><div class="line">$ sudo pip install --upgrade virtualenv</div><div class="line"></div><div class="line">$ virtualenv --system-site-packages ~/tensorflow</div><div class="line">$ <span class="built_in">cd</span> ~/tensorflow</div><div class="line"></div><div class="line">$ <span class="built_in">source</span> bin/activate  <span class="comment"># 如果使用 bash zsh 等</span></div><div class="line"></div><div class="line">$ pip install --upgrade tensorflow       ＃<span class="keyword">for</span> Python 2.7</div><div class="line"> $ pip3 install --upgrade tensorflow      ＃<span class="keyword">for</span> Python 3.n</div></pre></td></tr></table></figure>
+<p>安装完成</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/08/07/CoreML-和TensorFlow的安装运行/">
+    <time datetime="2017-08-07T08:41:28.000Z" class="entry-date">
+        2017-08-07
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-React-Native-备忘" class="post-React-Native-备忘 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/08/04/React-Native-备忘/">React-Native 备忘</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/04/React-Native-备忘/" data-id="cj61xed350005ks2w2li66m4i" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><ol>
+<li>在react-native的标签内使用<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">`...<span class="variable">$&#123;...&#125;</span>`</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>模板没有效果</p>
+<ol>
+<li>报错<br><img src="http://ostglltzu.bkt.clouddn.com/17-8-4/52097411.jpg" alt="img"></li>
+</ol>
+<p>解决办法:在FlatList 标签内添加</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;FlistList</div><div class="line">keyExtractor=&#123;this._keyExtractor&#125;</div><div class="line">/&gt;</div><div class="line"><span class="keyword">function</span>   _keyExtractor = (item,index) =&gt; item.id;</div></pre></td></tr></table></figure>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/08/04/React-Native-备忘/">
+    <time datetime="2017-08-04T01:41:39.000Z" class="entry-date">
+        2017-08-04
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-npm-使用方法备忘" class="post-npm-使用方法备忘 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -80,13 +182,15 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/28/npm-使用方法备忘/" data-id="cj5rhn14y0005g62wchky3o1u" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/28/npm-使用方法备忘/" data-id="cj61xed3g0009ks2wyc1zb7kg" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
         <script src="/assets/js/APlayer.min.js"> </script><h3 id="npm-降级"><a href="#npm-降级" class="headerlink" title="npm 降级"></a>npm 降级</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install npm@version --save</div></pre></td></tr></table></figure>
+<p>查询node 地址 </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">where</span> node</div></pre></td></tr></table></figure>
       
     </div><!-- .entry-content -->
 
@@ -122,7 +226,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/25/react-native开发相关备忘/" data-id="cj5rhn1590009g62wp1mkqmuo" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/25/react-native开发相关备忘/" data-id="cj61xed3j000bks2wi4ns669q" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -177,7 +281,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/21/Pod-search-找不到库的解决方案/" data-id="cj5rhn14t0002g62wjl98yinn" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/21/Pod-search-找不到库的解决方案/" data-id="cj61xed300003ks2wb9rvpglw" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -221,7 +325,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/20/Python-在Mac-上的多版本管理及pip安装/" data-id="cj5rhn14v0003g62wr1ymgvjz" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/20/Python-在Mac-上的多版本管理及pip安装/" data-id="cj61xed300004ks2wg6u2bd1l" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -320,7 +424,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/19/MacOS-系统加载项禁用/" data-id="cj5rhn14r0001g62wqwlxn4zh" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/19/MacOS-系统加载项禁用/" data-id="cj61xed2y0002ks2witrg8lpj" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -469,7 +573,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/18/react-native-8081端口被mcafee霸占后如何搬家/" data-id="cj5rhn1570008g62w7oola4ln" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/18/react-native-8081端口被mcafee霸占后如何搬家/" data-id="cj61xed3f0008ks2wtgu45co2" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -545,7 +649,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/16/今天写点啥呢-随便写点吧/" data-id="cj5rhn1520007g62wnl49rhn6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/16/今天写点啥呢-随便写点吧/" data-id="cj61xed3h000aks2wxpd4p0bg" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -591,7 +695,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/16/JenKins在线打包坑点总结/" data-id="cj5rhn14n0000g62wc7um1k4x" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/16/JenKins在线打包坑点总结/" data-id="cj61xed2x0001ks2wa90f2cqx" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -634,98 +738,12 @@
 
 
   
-    <article id="post-iOS安全培训" class="post-iOS安全培训 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
   
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/07/13/iOS安全培训/">iOS安全培训</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/13/iOS安全培训/" data-id="cj5rhn1500006g62ww7oi45m7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><h3 id="iOS-安全"><a href="#iOS-安全" class="headerlink" title="iOS 安全"></a>iOS 安全</h3><h4 id="非越狱状态的安全程度"><a href="#非越狱状态的安全程度" class="headerlink" title="非越狱状态的安全程度"></a>非越狱状态的安全程度</h4><h4 id="越狱情况下的安全程度"><a href="#越狱情况下的安全程度" class="headerlink" title="越狱情况下的安全程度"></a>越狱情况下的安全程度</h4><h4 id="安全开发Tips"><a href="#安全开发Tips" class="headerlink" title="安全开发Tips"></a>安全开发Tips</h4><hr>
-<h5 id="在非越狱状况下我们能做什么？"><a href="#在非越狱状况下我们能做什么？" class="headerlink" title="在非越狱状况下我们能做什么？"></a>在非越狱状况下我们能做什么？</h5><p>固件级别：设备秘钥 ，组秘钥 ，Apple根证书<br>        加密引擎 ， 内核（安全加密芯片，安全元件）</p>
-<p>软件：文件系统 ， 操作系统分区 ，用户分区 ，sandbox</p>
-<p>越狱后 可以修改底层的东西</p>
-<hr>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/07/13/iOS安全培训/">
-    <time datetime="2017-07-13T01:59:28.000Z" class="entry-date">
-        2017-07-13
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="post-hello-world post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/07/06/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/06/hello-world/" data-id="cj5rhn14w0004g62w5qznhrqk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=484058255&auto=1&height=66"></iframe>
-
-<p>聽說程序猿都要寫點blog啥的,<br>今天自己搭了一個,那就寫點吧,<br>寫點啥呢?</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hello world!!</div></pre></td></tr></table></figure>
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/07/06/hello-world/">
-    <time datetime="2017-07-06T00:02:07.000Z" class="entry-date">
-        2017-07-06
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
+    <nav id="pagination">
+      <nav id="page-nav">
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      </nav>
+    </nav>
   
 
 </div></div>
@@ -749,6 +767,14 @@
       <ul>
         
           <li>
+            <a href="/2017/08/07/CoreML-和TensorFlow的安装运行/">CoreML 和TensorFlow的安装运行</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/04/React-Native-备忘/">React-Native 备忘</a>
+          </li>
+        
+          <li>
             <a href="/2017/07/28/npm-使用方法备忘/">npm 使用方法备忘</a>
           </li>
         
@@ -758,14 +784,6 @@
         
           <li>
             <a href="/2017/07/21/Pod-search-找不到库的解决方案/">Pod search 找不到库的解决方案</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/20/Python-在Mac-上的多版本管理及pip安装/">Python 在Mac 上的多版本管理及pip安装</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/19/MacOS-系统加载项禁用/">MacOS 系统加载项禁用</a>
           </li>
         
       </ul>
