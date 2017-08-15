@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="人之一生如负重远行，欲速则不达" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>记录今天遇到的东西和开发中的技巧 | 紫莯</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. 登录页面逻辑设计 有两种方法 主要是根据情况设置谁为window.rootViewcontroller的问题。在appdelegate.h文件中监听通知，登录与退出。在默认加载时window.rootViewcontroller 设置为登录的viewcontroller。当登录成功后发送通知，在appdelegate中接收通知，将修改window.rootViewController为ui">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记录今天遇到的东西和开发中的技巧">
+<meta property="og:url" content="http://zimu.tk/2017/08/15/记录今天遇到的东西和开发中的技巧/index.html">
+<meta property="og:site_name" content="紫莯">
+<meta property="og:description" content="1. 登录页面逻辑设计 有两种方法 主要是根据情况设置谁为window.rootViewcontroller的问题。在appdelegate.h文件中监听通知，登录与退出。在默认加载时window.rootViewcontroller 设置为登录的viewcontroller。当登录成功后发送通知，在appdelegate中接收通知，将修改window.rootViewController为ui">
+<meta property="og:updated_time" content="2017-08-15T09:58:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记录今天遇到的东西和开发中的技巧">
+<meta name="twitter:description" content="1. 登录页面逻辑设计 有两种方法 主要是根据情况设置谁为window.rootViewcontroller的问题。在appdelegate.h文件中监听通知，登录与退出。在默认加载时window.rootViewcontroller 设置为登录的viewcontroller。当登录成功后发送通知，在appdelegate中接收通知，将修改window.rootViewController为ui">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="紫莯" rel="home">紫莯</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-记录今天遇到的东西和开发中的技巧" class="post-记录今天遇到的东西和开发中的技巧 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      记录今天遇到的东西和开发中的技巧
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/15/记录今天遇到的东西和开发中的技巧/" data-id="cj6df3fpg000clz2w2p255gsn" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h3 id="1-登录页面逻辑设计"><a href="#1-登录页面逻辑设计" class="headerlink" title="1. 登录页面逻辑设计"></a>1. 登录页面逻辑设计</h3><ul>
+<li>有两种方法<ol>
+<li>主要是根据情况设置谁为window.rootViewcontroller的问题。在appdelegate.h文件中监听通知，登录与退出。在默认加载时window.rootViewcontroller 设置为登录的viewcontroller。当登录成功后发送通知，在appdelegate中接收通知，将修改window.rootViewController为uitabbarcontroller.相应的当退出时，发送退出通知，这时在appdelegate中接收到退出通知，将window.rootViewController设置为登录的viewcontroller.</li>
+<li>默认就设置uitabbarController为window.rootViewController.　在登录时使用presentviewcontroller弹出登录的viewcontroller.这样你看到的第一个视图就是登录的视图。当登录成功后dismiss登录viewcontroller，发通知重新reload tabbarcontroller 。退出时重新present登录窗口就可以了</li>
+</ol>
+</li>
+</ul>
+<h3 id="2-怎样连续dismiss2个ViewController"><a href="#2-怎样连续dismiss2个ViewController" class="headerlink" title="2. 怎样连续dismiss2个ViewController"></a>2. 怎样连续dismiss2个ViewController</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];</div></pre></td></tr></table></figure>
+<h3 id="3-NSJSONReadingMutableContainers等的含义"><a href="#3-NSJSONReadingMutableContainers等的含义" class="headerlink" title="3. NSJSONReadingMutableContainers等的含义"></a>3. NSJSONReadingMutableContainers等的含义</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&amp;error];</div><div class="line">NSJSONReadingMutableContainers = (1UL &lt;&lt; 0), // 返回的是一个可变数组或者字段</div><div class="line">NSJSONReadingMutableLeaves = (1UL &lt;&lt; 1), // 不仅返回的最外层是可变的, 内部的子数值或字典也是可变对象</div><div class="line">NSJSONReadingAllowFragments = (1UL &lt;&lt; 2) // 返回的最外侧可不是字典或者数组 可以是如 <span class="string">"10"</span></div></pre></td></tr></table></figure>
+<p>如果你不想返回一个可变的对象, 那么可以传入<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 4. 升级了ruby后遇到的坑</div><div class="line">由于安装gollum 需要的ruby版本最低为2.2.0,所以使用rvm 把ruby升级了,后面就发现我的cocoapods不能使用了,报错如下</div><div class="line">![](http://ostglltzu.bkt.clouddn.com/17-8-15/80796610.jpg)</div><div class="line"></div><div class="line"></div><div class="line">网上有坑爹的说是安装rails后会好,好个毛线,最后在新的路径下重装后好了</div><div class="line"></div><div class="line">```sh</div><div class="line">➜  ~ sudo gem install -n /usr/local/bin cocoapods</div></pre></td></tr></table></figure></p>
+<h3 id="5-java-服务器相关"><a href="#5-java-服务器相关" class="headerlink" title="5. java 服务器相关"></a>5. java 服务器相关</h3><p>jar包运行命令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar &lt;包名.jar&gt;</div></pre></td></tr></table></figure>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/08/15/记录今天遇到的东西和开发中的技巧/">
+    <time datetime="2017-08-15T07:50:42.000Z" class="entry-date">
+        2017-08-15
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2017/08/14/一个小坑-block修饰词错误引发的时间浪费/" rel="next">一个小坑--block修饰词错误引发的时间浪费  <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2017/08/15/记录今天遇到的东西和开发中的技巧/">记录今天遇到的东西和开发中的技巧</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/14/一个小坑-block修饰词错误引发的时间浪费/">一个小坑--block修饰词错误引发的时间浪费 </a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/13/十年之后山口山/">十年之后山口山</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/10/鹅厂的Sonic/">鹅厂的Sonic</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/08/iOS-设置布局起始/">iOS 设置布局起始</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2017 Hugh Lee
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

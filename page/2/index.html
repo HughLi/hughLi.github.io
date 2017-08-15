@@ -65,6 +65,105 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-Python-在Mac-上的多版本管理及pip安装" class="post-Python-在Mac-上的多版本管理及pip安装 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/07/20/Python-在Mac-上的多版本管理及pip安装/">Python 在Mac 上的多版本管理及pip安装</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/20/Python-在Mac-上的多版本管理及pip安装/" data-id="cj6df3fp00004lz2wzf7uqe8u" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h3 id="1-安装homebrew"><a href="#1-安装homebrew" class="headerlink" title="1. 安装homebrew"></a>1. 安装homebrew</h3><p>官网 <a href="http://brew.sh/index_zh-cn.html" target="_blank" rel="external">http://brew.sh/index_zh-cn.html</a></p>
+<p>打开终端，在终端中粘贴如下脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div></pre></td></tr></table></figure></p>
+<p>测试是否安装成功</p>
+<p>在终端中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew -v</div></pre></td></tr></table></figure></p>
+<p>出现类似提示，即代表安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Homebrew 0.9.5 (Git revision 1021; last commit 2016-03-30)</div></pre></td></tr></table></figure></p>
+<h3 id="2-安装pyenv"><a href="#2-安装pyenv" class="headerlink" title="2.安装pyenv"></a>2.安装pyenv</h3><p>在终端中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install pyenv</div></pre></td></tr></table></figure></p>
+<p>验证是否安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyenv -v</div></pre></td></tr></table></figure></p>
+<p> 出现类似结果，即代表安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyenv 20150310</div></pre></td></tr></table></figure></p>
+<h3 id="3-查看可安装的Python版本"><a href="#3-查看可安装的Python版本" class="headerlink" title="3.查看可安装的Python版本"></a>3.查看可安装的Python版本</h3><p>在终端中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyenv install --list</div></pre></td></tr></table></figure></p>
+<p> 会列出可安装的python版本号</p>
+<h3 id="4-安装特定版本的Python"><a href="#4-安装特定版本的Python" class="headerlink" title="4.安装特定版本的Python"></a>4.安装特定版本的Python</h3><p>在终端中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyenv install &lt;version&gt;</div></pre></td></tr></table></figure></p>
+<p>安装对应的Python版本，如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyenv install 2.7.11</div></pre></td></tr></table></figure></p>
+<h3 id="5-异常处理"><a href="#5-异常处理" class="headerlink" title="5.异常处理"></a>5.异常处理</h3><p>如出现如下异常：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">Installing Python-2.7.11...</div><div class="line">ERROR: The Python zlib extension was not compiled. Missing the zlib?</div><div class="line"></div><div class="line">Please consult to the Wiki page to fix the problem.</div><div class="line">https://github.com/yyuu/pyenv/wiki/Common-build-problems</div><div class="line"></div><div class="line"></div><div class="line">BUILD FAILED (OS X 10.11.5 using python-build 20160130)</div><div class="line"></div><div class="line">Inspect or clean up the working tree at /var/folders/fb/7406jr3s60z_tdpxxqm2s9hh0000gn/T/python-build.20160616162746.48644</div><div class="line">Results logged to /var/folders/fb/7406jr3s60z_tdpxxqm2s9hh0000gn/T/python-build.20160616162746.48644.log</div><div class="line"></div><div class="line">Last 10 log lines:</div><div class="line">rm -f /Users/Matrix/.pyenv/versions/2.7.11/share/man/man1/python.1</div><div class="line">(cd /Users/Matrix/.pyenv/versions/2.7.11/share/man/man1; ln -s python2.1 python.1)</div><div class="line">if test &quot;xno&quot; != &quot;xno&quot;  ; then \</div><div class="line">        case no in \</div><div class="line">            upgrade) ensurepip=&quot;--upgrade&quot; ;; \</div><div class="line">            install|*) ensurepip=&quot;&quot; ;; \</div><div class="line">        esac; \</div><div class="line">         ./python.exe -E -m ensurepip \</div><div class="line">            $ensurepip --root=/ ; \</div><div class="line">    fi</div><div class="line">yujingyao:2.7.11 Matrix$ CFLAGS=&quot;-I$(brew --prefix openssl)/include&quot; LDFLAGS=&quot;-L$(brew --prefix openssl)/lib&quot; pyenv install 3.6-Dev</div><div class="line">Cloning https://hg.python.org/cpython...</div><div class="line">error: please install `mercurial` and try again</div></pre></td></tr></table></figure>
+<p> 则在终端中输入，注意替换如下代码的版本号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CFLAGS=&quot;-I$(brew --prefix openssl)/include -I$(xcrun --show-sdk-path)/usr/include&quot; \</div><div class="line">LDFLAGS=&quot;-L$(brew --prefix openssl)/lib&quot; \</div><div class="line">pyenv install -v 2.7.11</div></pre></td></tr></table></figure></p>
+<p> 在EI Capitan实测有效</p>
+<p>资料来源：</p>
+<blockquote>
+<p><a href="https://github.com/yyuu/pyenv/issues/448" target="_blank" rel="external">https://github.com/yyuu/pyenv/issues/448</a></p>
+</blockquote>
+<p>如有其他异常可以参考</p>
+<blockquote>
+<p><a href="https://github.com/yyuu/pyenv/wiki/Common-build-problems" target="_blank" rel="external">https://github.com/yyuu/pyenv/wiki/Common-build-problems</a> </p>
+</blockquote>
+<h3 id="6-查看pyenv已安装的Python版本"><a href="#6-查看pyenv已安装的Python版本" class="headerlink" title="6.查看pyenv已安装的Python版本"></a>6.查看pyenv已安装的Python版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyenv versions</div></pre></td></tr></table></figure>
+<p> 在终端中会列出已安装的Python版本，如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">2.7.11</div><div class="line"></div><div class="line">3.5.1</div></pre></td></tr></table></figure>
+<h3 id="7-编辑-bash-profile文件"><a href="#7-编辑-bash-profile文件" class="headerlink" title="7.编辑.bash_profile文件"></a>7.编辑.bash_profile文件</h3><p>在终端中输入如下命令，进入当前用户的Home目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd ~</div></pre></td></tr></table></figure>
+<p>输入如下命令，打开.bash_profile文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">open .bash_profile</div></pre></td></tr></table></figure>
+<p>如不存在，则输入如下命令，创建文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">touch .bash_profile</div></pre></td></tr></table></figure>
+<p>编辑文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">open -e .bash_profile</div></pre></td></tr></table></figure>
+<p>在弹出的.bash_profile文件中新增</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">if which pyenv &gt; /dev/null; then eval &quot;$(pyenv init -)&quot;; fi</div></pre></td></tr></table></figure>
+<p>command + s 保存文件</p>
+<p>在终端中输入如下命令，使用更新之后的.bash_profile内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source .bash_profile</div></pre></td></tr></table></figure>
+<h3 id="8-指定目录切换指定版本的Python"><a href="#8-指定目录切换指定版本的Python" class="headerlink" title="8.指定目录切换指定版本的Python"></a>8.指定目录切换指定版本的Python</h3><p>在终端中cd到特定目录，路径名称自行修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd /Users/Matrix/Documents/Projects/Python/3.5.1</div></pre></td></tr></table></figure>
+<p>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyenv local &lt;version&gt;</div></pre></td></tr></table></figure>
+<p>如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyenv local 3.5.1</div></pre></td></tr></table></figure>
+<h3 id="9-设定全局的Python版本"><a href="#9-设定全局的Python版本" class="headerlink" title="9.设定全局的Python版本"></a>9.设定全局的Python版本</h3><p>在终端中输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyenv global &lt;version&gt;</div></pre></td></tr></table></figure>
+<p>如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyenv global 3.5.11</div></pre></td></tr></table></figure>
+<p>不建议如此操作，可能会导致部分系统程序无法正常工作</p>
+<h3 id="10-检查是否切换成功"><a href="#10-检查是否切换成功" class="headerlink" title="10.检查是否切换成功"></a>10.检查是否切换成功</h3><p>在终端中cd到特定目录，路径名称自行修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd /Users/Matrix/Documents/Projects/Python/3.5.1</div></pre></td></tr></table></figure>
+<p> 在终端中输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python</div></pre></td></tr></table></figure>
+<p>会列出当前目录使用的python版本，和设置的版本一样则代表切换成功</p>
+<h3 id="11-使用python3-安装pip"><a href="#11-使用python3-安装pip" class="headerlink" title="11. 使用python3 安装pip"></a>11. 使用python3 安装pip</h3><pre><code>python3  setup.py install
+</code></pre>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/07/20/Python-在Mac-上的多版本管理及pip安装/">
+    <time datetime="2017-07-20T01:29:42.000Z" class="entry-date">
+        2017-07-20
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-MacOS-系统加载项禁用" class="post-MacOS-系统加载项禁用 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -80,7 +179,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/19/MacOS-系统加载项禁用/" data-id="cj6c9qc070002y0fyg3e6ys3u" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/19/MacOS-系统加载项禁用/" data-id="cj6df3fox0002lz2wye100tpo" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -229,7 +328,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/18/react-native-8081端口被mcafee霸占后如何搬家/" data-id="cj6c9qc0t000by0fyao9rbyfa" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/18/react-native-8081端口被mcafee霸占后如何搬家/" data-id="cj6df3fpf000blz2w2qn4lbdt" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -305,7 +404,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/16/今天写点啥呢-随便写点吧/" data-id="cj6c9qc0r000ay0fy58ofylxy" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/16/今天写点啥呢-随便写点吧/" data-id="cj6df3fpl000flz2wcosjbra8" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -351,7 +450,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/16/JenKins在线打包坑点总结/" data-id="cj6c9qc050001y0fy0vvle3o8" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/16/JenKins在线打包坑点总结/" data-id="cj6df3fov0001lz2wgdnrsudx" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -409,7 +508,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/13/iOS安全培训/" data-id="cj6c9qc0k0007y0fyh8t3h7dv" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/13/iOS安全培训/" data-id="cj6df3fp90007lz2w0g3sjg4t" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -456,7 +555,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/06/hello-world/" data-id="cj6c9qc090003y0fyktytybjl" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/06/hello-world/" data-id="cj6df3fp70006lz2w8hggwa9w" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -515,6 +614,10 @@
       <ul>
         
           <li>
+            <a href="/2017/08/15/记录今天遇到的东西和开发中的技巧/">记录今天遇到的东西和开发中的技巧</a>
+          </li>
+        
+          <li>
             <a href="/2017/08/14/一个小坑-block修饰词错误引发的时间浪费/">一个小坑--block修饰词错误引发的时间浪费 </a>
           </li>
         
@@ -528,10 +631,6 @@
         
           <li>
             <a href="/2017/08/08/iOS-设置布局起始/">iOS 设置布局起始</a>
-          </li>
-        
-          <li>
-            <a href="/2017/08/07/CoreML-和TensorFlow的安装运行/">CoreML 和TensorFlow的安装运行</a>
           </li>
         
       </ul>
