@@ -21,10 +21,12 @@
 <meta property="og:url" content="http://zimu.tk/2017/08/15/记录今天遇到的东西和开发中的技巧/index.html">
 <meta property="og:site_name" content="紫莯">
 <meta property="og:description" content="1. 登录页面逻辑设计 有两种方法 主要是根据情况设置谁为window.rootViewcontroller的问题。在appdelegate.h文件中监听通知，登录与退出。在默认加载时window.rootViewcontroller 设置为登录的viewcontroller。当登录成功后发送通知，在appdelegate中接收通知，将修改window.rootViewController为ui">
-<meta property="og:updated_time" content="2017-08-15T09:58:55.000Z">
+<meta property="og:image" content="http://ostglltzu.bkt.clouddn.com/17-8-15/80796610.jpg">
+<meta property="og:updated_time" content="2017-08-15T13:24:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记录今天遇到的东西和开发中的技巧">
 <meta name="twitter:description" content="1. 登录页面逻辑设计 有两种方法 主要是根据情况设置谁为window.rootViewcontroller的问题。在appdelegate.h文件中监听通知，登录与退出。在默认加载时window.rootViewcontroller 设置为登录的viewcontroller。当登录成功后发送通知，在appdelegate中接收通知，将修改window.rootViewController为ui">
+<meta name="twitter:image" content="http://ostglltzu.bkt.clouddn.com/17-8-15/80796610.jpg">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -79,7 +81,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/15/记录今天遇到的东西和开发中的技巧/" data-id="cj6df3fpg000clz2w2p255gsn" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/15/记录今天遇到的东西和开发中的技巧/" data-id="cj6dmegm6000e23fy3icbgsvh" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -94,7 +96,12 @@
 </ul>
 <h3 id="2-怎样连续dismiss2个ViewController"><a href="#2-怎样连续dismiss2个ViewController" class="headerlink" title="2. 怎样连续dismiss2个ViewController"></a>2. 怎样连续dismiss2个ViewController</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];</div></pre></td></tr></table></figure>
 <h3 id="3-NSJSONReadingMutableContainers等的含义"><a href="#3-NSJSONReadingMutableContainers等的含义" class="headerlink" title="3. NSJSONReadingMutableContainers等的含义"></a>3. NSJSONReadingMutableContainers等的含义</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&amp;error];</div><div class="line">NSJSONReadingMutableContainers = (1UL &lt;&lt; 0), // 返回的是一个可变数组或者字段</div><div class="line">NSJSONReadingMutableLeaves = (1UL &lt;&lt; 1), // 不仅返回的最外层是可变的, 内部的子数值或字典也是可变对象</div><div class="line">NSJSONReadingAllowFragments = (1UL &lt;&lt; 2) // 返回的最外侧可不是字典或者数组 可以是如 <span class="string">"10"</span></div></pre></td></tr></table></figure>
-<p>如果你不想返回一个可变的对象, 那么可以传入<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 4. 升级了ruby后遇到的坑</div><div class="line">由于安装gollum 需要的ruby版本最低为2.2.0,所以使用rvm 把ruby升级了,后面就发现我的cocoapods不能使用了,报错如下</div><div class="line">![](http://ostglltzu.bkt.clouddn.com/17-8-15/80796610.jpg)</div><div class="line"></div><div class="line"></div><div class="line">网上有坑爹的说是安装rails后会好,好个毛线,最后在新的路径下重装后好了</div><div class="line"></div><div class="line">```sh</div><div class="line">➜  ~ sudo gem install -n /usr/local/bin cocoapods</div></pre></td></tr></table></figure></p>
+<p>如果你不想返回一个可变的对象, 那么可以传入参数:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kNilOptions</div></pre></td></tr></table></figure>
+<h3 id="4-升级了ruby后遇到的坑"><a href="#4-升级了ruby后遇到的坑" class="headerlink" title="4. 升级了ruby后遇到的坑"></a>4. 升级了ruby后遇到的坑</h3><p>由于安装gollum 需要的ruby版本最低为2.2.0,所以使用rvm 把ruby升级了,后面就发现我的cocoapods不能使用了,报错如下</p>
+<p><img src="http://ostglltzu.bkt.clouddn.com/17-8-15/80796610.jpg" alt=""></p>
+<p>网上有坑爹的说是安装rails后会好,好个毛线,最后在新的路径下重装后好了</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">➜  ~ sudo gem install -n /usr/<span class="built_in">local</span>/bin cocoapods</div></pre></td></tr></table></figure>
 <h3 id="5-java-服务器相关"><a href="#5-java-服务器相关" class="headerlink" title="5. java 服务器相关"></a>5. java 服务器相关</h3><p>jar包运行命令</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar &lt;包名.jar&gt;</div></pre></td></tr></table></figure>
       
