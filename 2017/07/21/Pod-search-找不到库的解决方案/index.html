@@ -15,16 +15,16 @@
   
   <title>Pod search 找不到库的解决方案 | 紫莯</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="报错如下1[!] Unable to find a pod with name, author, summary, or description matching `AFNetworking 删除本地目录后修复1rm ~/Library/Caches/CocoaPods/search_index.json">
+  <meta name="description" content="报错如下1[!] Unable to find a pod with name, author, summary, or description matching `AFNetworking 删除本地目录后修复1rm ~/Library/Caches/CocoaPods/search_index.json  使用cocoapods的时候，当cocoapods更新到新的版本的时候，pod inst">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pod search 找不到库的解决方案">
 <meta property="og:url" content="http://zimu.tk/2017/07/21/Pod-search-找不到库的解决方案/index.html">
 <meta property="og:site_name" content="紫莯">
-<meta property="og:description" content="报错如下1[!] Unable to find a pod with name, author, summary, or description matching `AFNetworking 删除本地目录后修复1rm ~/Library/Caches/CocoaPods/search_index.json">
-<meta property="og:updated_time" content="2017-07-21T05:35:54.000Z">
+<meta property="og:description" content="报错如下1[!] Unable to find a pod with name, author, summary, or description matching `AFNetworking 删除本地目录后修复1rm ~/Library/Caches/CocoaPods/search_index.json  使用cocoapods的时候，当cocoapods更新到新的版本的时候，pod inst">
+<meta property="og:updated_time" content="2017-08-16T05:18:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pod search 找不到库的解决方案">
-<meta name="twitter:description" content="报错如下1[!] Unable to find a pod with name, author, summary, or description matching `AFNetworking 删除本地目录后修复1rm ~/Library/Caches/CocoaPods/search_index.json">
+<meta name="twitter:description" content="报错如下1[!] Unable to find a pod with name, author, summary, or description matching `AFNetworking 删除本地目录后修复1rm ~/Library/Caches/CocoaPods/search_index.json  使用cocoapods的时候，当cocoapods更新到新的版本的时候，pod inst">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -79,15 +79,27 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/21/Pod-search-找不到库的解决方案/" data-id="cj6dmeglb000323fy61qhwh8i" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/21/Pod-search-找不到库的解决方案/" data-id="cj6lfzxrf0004oi2wfla5ns3p" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <script src="/assets/js/APlayer.min.js"> </script><p>报错如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[!] Unable to find a pod with name, author, summary, or description matching `AFNetworking</div></pre></td></tr></table></figure></p>
-<p>删除本地目录后修复<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm ~/Library/Caches/CocoaPods/search_index.json</div></pre></td></tr></table></figure></p>
-
+        <script src="/assets/js/APlayer.min.js"> </script><p>报错如下<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[!] Unable to find a pod with name, author, summary, or description matching `AFNetworking</div></pre></td></tr></table></figure></p>
+<p>删除本地目录后修复<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm ~/Library/Caches/CocoaPods/search_index.json</div></pre></td></tr></table></figure></p>
+<p> 使用cocoapods的时候，当cocoapods更新到新的版本的时候，pod install 会报此cocoapods没有满足的版本，要求更新cocoapods，应该是本地缓存的问题，在这里记录一下解决办法，方便以后查找。</p>
+<ul>
+<li>移除本地master</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo rm -fr ~/.cocoapods/repos/master</div></pre></td></tr></table></figure>
+<ul>
+<li>移除本地缓存</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo rm -fr ~/Library/Caches/CocoaPods/</div></pre></td></tr></table></figure>
+<ul>
+<li>重新setup,如果网速较慢,可以在后面加上 –verbose</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod setup</div></pre></td></tr></table></figure>
       
     </div><!-- .entry-content -->
 
@@ -141,6 +153,14 @@
       <ul>
         
           <li>
+            <a href="/2017/08/20/吾家有女初长成/">吾家有女初长成</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/18/iOS的一些常用知识/">iOS的一些常用知识</a>
+          </li>
+        
+          <li>
             <a href="/2017/08/15/记录今天遇到的东西和开发中的技巧/">记录今天遇到的东西和开发中的技巧</a>
           </li>
         
@@ -150,14 +170,6 @@
         
           <li>
             <a href="/2017/08/13/十年之后山口山/">十年之后山口山</a>
-          </li>
-        
-          <li>
-            <a href="/2017/08/10/鹅厂的Sonic/">鹅厂的Sonic</a>
-          </li>
-        
-          <li>
-            <a href="/2017/08/08/iOS-设置布局起始/">iOS 设置布局起始</a>
           </li>
         
       </ul>

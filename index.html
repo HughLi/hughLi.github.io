@@ -65,6 +65,124 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-吾家有女初长成" class="post-吾家有女初长成 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/08/20/吾家有女初长成/">吾家有女初长成</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/20/吾家有女初长成/" data-id="cj6lfzxs0000foi2w8p3xbfg7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h3 id="宝宝语录"><a href="#宝宝语录" class="headerlink" title="宝宝语录:"></a>宝宝语录:</h3><ul>
+<li>宝宝:爸爸,我三岁了,我长大了</li>
+<li>我 : …</li>
+</ul>
+<hr>
+<ul>
+<li>我:宝宝,不能一天到晚都看电视哦,把平板给爸爸放起来好吗?</li>
+<li>宝宝:好的,给你</li>
+<li>认真脸</li>
+<li>宝宝:给了你那我玩什么??</li>
+</ul>
+<hr>
+<ul>
+<li>我:宝宝,爸爸要用电脑了哈,爸爸来写点东西</li>
+<li>宝宝看着汪汪队,头也不抬说了句:</li>
+<li>“爸爸,你不要一天都打游戏嘛”</li>
+<li>我:”…”</li>
+</ul>
+<hr>
+<ul>
+<li>宝宝把玩具足球放在了妈妈的草帽下</li>
+<li>然后,妈妈说为啥我的草帽在地上</li>
+<li><p>宝宝:”妈妈,你的帽子下是个球…”</p>
+</li>
+<li><p>是个球,是个球,球….</p>
+<ul>
+<li>妈妈满脸黑线</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/08/20/吾家有女初长成/">
+    <time datetime="2017-08-20T00:35:27.000Z" class="entry-date">
+        2017-08-20
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-iOS的一些常用知识" class="post-iOS的一些常用知识 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/08/18/iOS的一些常用知识/">iOS的一些常用知识</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/18/iOS的一些常用知识/" data-id="cj6lfzxrq0008oi2w9eaf8d1l" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><blockquote>
+<p>最近在写一个iOS的项目,现在记录下一些用到的知识点,哎 我的知识盲区有点多啊</p>
+</blockquote>
+<h3 id="1-类扩展-Categires"><a href="#1-类扩展-Categires" class="headerlink" title="1.类扩展 Categires"></a>1.类扩展 Categires</h3><h4 id="1-1-颜色相关"><a href="#1-1-颜色相关" class="headerlink" title="1.1 颜色相关"></a>1.1 颜色相关</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">+ (UIColor *)colorFromHexString:(NSString *)hexString &#123;</div><div class="line">    unsigned rgbValue = 0;</div><div class="line">    NSScanner *scanner = [NSScanner scannerWithString:hexString];</div><div class="line">    [scanner setScanLocation:1]; // bypass <span class="string">'#'</span> character</div><div class="line">    [scanner scanHexInt:&amp;rgbValue];</div><div class="line">    <span class="built_in">return</span> [UIColor colorWithRed:((rgbValue &amp; 0xFF0000) &gt;&gt; 16)/255.0 green:((rgbValue &amp; 0xFF00) &gt;&gt; 8)/255.0 blue:(rgbValue &amp; 0xFF)/255.0 alpha:1.0];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-冷知识"><a href="#2-冷知识" class="headerlink" title="2. 冷知识"></a>2. 冷知识</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/08/18/iOS的一些常用知识/">
+    <time datetime="2017-08-18T07:01:14.000Z" class="entry-date">
+        2017-08-18
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-记录今天遇到的东西和开发中的技巧" class="post-记录今天遇到的东西和开发中的技巧 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -80,7 +198,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/15/记录今天遇到的东西和开发中的技巧/" data-id="cj6dmegm6000e23fy3icbgsvh" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/15/记录今天遇到的东西和开发中的技巧/" data-id="cj6lfzxs2000hoi2w1an1m921" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -138,7 +256,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/14/一个小坑-block修饰词错误引发的时间浪费/" data-id="cj6dmeglw000c23fy7gvojai2" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/14/一个小坑-block修饰词错误引发的时间浪费/" data-id="cj6lfzxrx000doi2w7dx9cw82" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -184,7 +302,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/13/十年之后山口山/" data-id="cj6dmegmk000g23fy4ol2puvk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/13/十年之后山口山/" data-id="cj6lfzxs1000goi2w5n3bfgge" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -229,7 +347,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/10/鹅厂的Sonic/" data-id="cj6dmegm7000f23fywcn0d8xs" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/10/鹅厂的Sonic/" data-id="cj6lfzxs3000ioi2w53tclc4s" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -279,7 +397,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/08/iOS-设置布局起始/" data-id="cj6dmeglk000723fybugbpphh" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/08/iOS-设置布局起始/" data-id="cj6lfzxrk0006oi2wf3egqav7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -331,7 +449,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/07/CoreML-和TensorFlow的安装运行/" data-id="cj6dmegl3000023fy3zxd83up" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/07/CoreML-和TensorFlow的安装运行/" data-id="cj6lfzxrc0002oi2wrvdhqf98" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -381,7 +499,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/04/React-Native-备忘/" data-id="cj6dmegli000623fy4a63tmhi" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/04/React-Native-备忘/" data-id="cj6lfzxri0005oi2w8qeqbhhm" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -433,7 +551,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/28/npm-使用方法备忘/" data-id="cj6dmeglt000a23fytbcer4nt" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/28/npm-使用方法备忘/" data-id="cj6lfzxru000aoi2wj2bmgnlt" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -449,105 +567,6 @@
     <a href="/2017/07/28/npm-使用方法备忘/">
     <time datetime="2017-07-28T01:19:44.000Z" class="entry-date">
         2017-07-28
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-react-native开发相关备忘" class="post-react-native开发相关备忘 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/07/25/react-native开发相关备忘/">react-native开发相关备忘</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/25/react-native开发相关备忘/" data-id="cj6dmeglu000b23fylpkml82t" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><h3 id="三方库"><a href="#三方库" class="headerlink" title="三方库"></a>三方库</h3><ol>
-<li>UI组件  <a href="https://github.com/react-native-community/react-native-elements" target="_blank" rel="external">react-native-elements</a></li>
-<li>导航栏  <a href="https://reactnavigation.org" target="_blank" rel="external">React Navigation</a></li>
-<li>UI组件 <a href="https://github.com/GeekyAnts/NativeBase" target="_blank" rel="external">NativeBase</a></li>
-</ol>
-<h3 id="技术文章"><a href="#技术文章" class="headerlink" title="技术文章"></a>技术文章</h3><ol>
-<li><a href="http://www.jianshu.com/p/2f575cc35780" target="_blank" rel="external">react-navigation使用技巧</a></li>
-<li><a href="http://www.jianshu.com/p/4d14bd41dff3" target="_blank" rel="external">翻译|React-navigation导航系统</a></li>
-<li><a href="https://talk.ninghao.net/t/hao-ge-ke-yi-fen-xiang-xia-ni-de-atom-snippetsyao/3626" target="_blank" rel="external">宁皓网atom snippets</a></li>
-</ol>
-<h3 id="终端小彩蛋"><a href="#终端小彩蛋" class="headerlink" title="终端小彩蛋"></a>终端小彩蛋</h3><blockquote>
-<p>使用brew 安装 </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1. brew install ls</div><div class="line">2. brew install cowsay</div><div class="line">3. brew install cmatrix</div><div class="line">4. brew install fortune</div></pre></td></tr></table></figure>
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/07/25/react-native开发相关备忘/">
-    <time datetime="2017-07-25T13:11:25.000Z" class="entry-date">
-        2017-07-25
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-Pod-search-找不到库的解决方案" class="post-Pod-search-找不到库的解决方案 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/07/21/Pod-search-找不到库的解决方案/">Pod search 找不到库的解决方案</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/21/Pod-search-找不到库的解决方案/" data-id="cj6dmeglb000323fy61qhwh8i" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><p>报错如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[!] Unable to find a pod with name, author, summary, or description matching `AFNetworking</div></pre></td></tr></table></figure></p>
-<p>删除本地目录后修复<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm ~/Library/Caches/CocoaPods/search_index.json</div></pre></td></tr></table></figure></p>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/07/21/Pod-search-找不到库的解决方案/">
-    <time datetime="2017-07-21T01:12:02.000Z" class="entry-date">
-        2017-07-21
     </time>
 </a>
     
@@ -590,6 +609,14 @@
       <ul>
         
           <li>
+            <a href="/2017/08/20/吾家有女初长成/">吾家有女初长成</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/18/iOS的一些常用知识/">iOS的一些常用知识</a>
+          </li>
+        
+          <li>
             <a href="/2017/08/15/记录今天遇到的东西和开发中的技巧/">记录今天遇到的东西和开发中的技巧</a>
           </li>
         
@@ -599,14 +626,6 @@
         
           <li>
             <a href="/2017/08/13/十年之后山口山/">十年之后山口山</a>
-          </li>
-        
-          <li>
-            <a href="/2017/08/10/鹅厂的Sonic/">鹅厂的Sonic</a>
-          </li>
-        
-          <li>
-            <a href="/2017/08/08/iOS-设置布局起始/">iOS 设置布局起始</a>
           </li>
         
       </ul>
