@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://zimu.tk/2017/08/18/iOS的一些常用知识/index.html">
 <meta property="og:site_name" content="紫莯">
 <meta property="og:description" content="最近在写一个iOS的项目,现在记录下一些用到的知识点,哎 我的知识盲区有点多啊  1.类扩展 Categires1.1 颜色相关1234567+ (UIColor *)colorFromHexString:(NSString *)hexString &amp;#123;    unsigned rgbValue = 0;    NSScanner *scanner = [NSScanner scann">
-<meta property="og:updated_time" content="2017-08-18T07:04:52.000Z">
+<meta property="og:updated_time" content="2017-08-21T00:50:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS的一些常用知识">
 <meta name="twitter:description" content="最近在写一个iOS的项目,现在记录下一些用到的知识点,哎 我的知识盲区有点多啊  1.类扩展 Categires1.1 颜色相关1234567+ (UIColor *)colorFromHexString:(NSString *)hexString &amp;#123;    unsigned rgbValue = 0;    NSScanner *scanner = [NSScanner scann">
@@ -79,7 +79,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/18/iOS的一些常用知识/" data-id="cj6lfzxrq0008oi2w9eaf8d1l" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/18/iOS的一些常用知识/" data-id="cj6lgy7vg0009hc2ww4to1z59" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -89,7 +89,10 @@
 <p>最近在写一个iOS的项目,现在记录下一些用到的知识点,哎 我的知识盲区有点多啊</p>
 </blockquote>
 <h3 id="1-类扩展-Categires"><a href="#1-类扩展-Categires" class="headerlink" title="1.类扩展 Categires"></a>1.类扩展 Categires</h3><h4 id="1-1-颜色相关"><a href="#1-1-颜色相关" class="headerlink" title="1.1 颜色相关"></a>1.1 颜色相关</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">+ (UIColor *)colorFromHexString:(NSString *)hexString &#123;</div><div class="line">    unsigned rgbValue = 0;</div><div class="line">    NSScanner *scanner = [NSScanner scannerWithString:hexString];</div><div class="line">    [scanner setScanLocation:1]; // bypass <span class="string">'#'</span> character</div><div class="line">    [scanner scanHexInt:&amp;rgbValue];</div><div class="line">    <span class="built_in">return</span> [UIColor colorWithRed:((rgbValue &amp; 0xFF0000) &gt;&gt; 16)/255.0 green:((rgbValue &amp; 0xFF00) &gt;&gt; 8)/255.0 blue:(rgbValue &amp; 0xFF)/255.0 alpha:1.0];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="2-冷知识"><a href="#2-冷知识" class="headerlink" title="2. 冷知识"></a>2. 冷知识</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<h3 id="2-冷知识"><a href="#2-冷知识" class="headerlink" title="2. 冷知识"></a>2. 冷知识</h3><ul>
+<li>按键的状态</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
       
     </div><!-- .entry-content -->
 
