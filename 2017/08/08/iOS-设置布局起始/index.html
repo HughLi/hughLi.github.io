@@ -15,16 +15,16 @@
   
   <title>iOS 设置布局起始 | 紫莯</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="self.automaticallyAdjustsScrollViewInsets = NO； 禁用掉自动设置的内边距，自行控制controller上index为0的控件以及scrollview控件的位置  self.edgesForExtendedLayout = UIExtendedEdgeNone;这种方式设置，不需要再重新设置index为0的控件的位置以及scrollview的位">
+  <meta name="description" content="= NO；``` 禁用掉自动设置的内边距，自行控制controller上index为0的控件以及scrollview控件的位置1234567892. ```self.edgesForExtendedLayout = UIExtendedEdgeNone;```这种方式设置，不需要再重新设置index为0的控件的位置以及scrollview的位置，（0，0）默认的依然是从导航栏下面开始算起">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS 设置布局起始">
 <meta property="og:url" content="http://zimu.tk/2017/08/08/iOS-设置布局起始/index.html">
 <meta property="og:site_name" content="紫莯">
-<meta property="og:description" content="self.automaticallyAdjustsScrollViewInsets = NO； 禁用掉自动设置的内边距，自行控制controller上index为0的控件以及scrollview控件的位置  self.edgesForExtendedLayout = UIExtendedEdgeNone;这种方式设置，不需要再重新设置index为0的控件的位置以及scrollview的位">
-<meta property="og:updated_time" content="2017-08-08T04:06:43.000Z">
+<meta property="og:description" content="= NO；``` 禁用掉自动设置的内边距，自行控制controller上index为0的控件以及scrollview控件的位置1234567892. ```self.edgesForExtendedLayout = UIExtendedEdgeNone;```这种方式设置，不需要再重新设置index为0的控件的位置以及scrollview的位置，（0，0）默认的依然是从导航栏下面开始算起">
+<meta property="og:updated_time" content="2017-08-22T07:40:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 设置布局起始">
-<meta name="twitter:description" content="self.automaticallyAdjustsScrollViewInsets = NO； 禁用掉自动设置的内边距，自行控制controller上index为0的控件以及scrollview控件的位置  self.edgesForExtendedLayout = UIExtendedEdgeNone;这种方式设置，不需要再重新设置index为0的控件的位置以及scrollview的位">
+<meta name="twitter:description" content="= NO；``` 禁用掉自动设置的内边距，自行控制controller上index为0的控件以及scrollview控件的位置1234567892. ```self.edgesForExtendedLayout = UIExtendedEdgeNone;```这种方式设置，不需要再重新设置index为0的控件的位置以及scrollview的位置，（0，0）默认的依然是从导航栏下面开始算起">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -79,7 +79,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/08/iOS-设置布局起始/" data-id="cj6lgy7vb0007hc2w1bw0d3n1" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/08/iOS-设置布局起始/" data-id="cj6ne20ec0007012wohmhyd0w" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -89,12 +89,9 @@
 <li></li>
 </ul>
 <ol>
-<li><p><code>self.automaticallyAdjustsScrollViewInsets = NO；</code> 禁用掉自动设置的内边距，自行控制controller上index为0的控件以及scrollview控件的位置</p>
-</li>
-<li><p><code>self.edgesForExtendedLayout = UIExtendedEdgeNone;</code>这种方式设置，不需要再重新设置index为0的控件的位置以及scrollview的位置，（0，0）默认的依然是从导航栏下面开始算起</p>
+<li><figure class="highlight plain"><figcaption><span>= NO；``` 禁用掉自动设置的内边距，自行控制controller上index为0的控件以及scrollview控件的位置</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">2. ```self.edgesForExtendedLayout = UIExtendedEdgeNone;```这种方式设置，不需要再重新设置index为0的控件的位置以及scrollview的位置，（0，0）默认的依然是从导航栏下面开始算起</div><div class="line"></div><div class="line">[相关说明链接](http://www.vinqon.com/codeblog/?detail/11109)</div><div class="line"></div><div class="line">3. masonry 布局新方法</div><div class="line"></div><div class="line">```sh</div><div class="line">make.width.mas_lessThanOrEqualTo().offset()</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p><a href="http://www.vinqon.com/codeblog/?detail/11109" target="_blank" rel="external">相关说明链接</a></p>
 
       
     </div><!-- .entry-content -->
