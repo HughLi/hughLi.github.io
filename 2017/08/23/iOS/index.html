@@ -13,18 +13,18 @@
   
   
   
-  <title>npm 使用方法备忘 | 紫莯</title>
+  <title>iOS一些控件细节设置 | 紫莯</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="npm 降级1npm install npm@version --save 查询node 地址  1where node">
+  <meta name="description" content="iOS 控件的一些小设置12textFiled.autocorrectionType = UITextAutocorrectionTypeNo;//取消自动联想输入textFiled.autocapitalizationType = UITextAutocapitalizationTypeNone;//取消首字母大写 NSString 转换成NSData 对象1NSData* xmlData =">
 <meta property="og:type" content="article">
-<meta property="og:title" content="npm 使用方法备忘">
-<meta property="og:url" content="http://zimu.tk/2017/07/28/npm-使用方法备忘/index.html">
+<meta property="og:title" content="iOS一些控件细节设置">
+<meta property="og:url" content="http://zimu.tk/2017/08/23/iOS/index.html">
 <meta property="og:site_name" content="紫莯">
-<meta property="og:description" content="npm 降级1npm install npm@version --save 查询node 地址  1where node">
-<meta property="og:updated_time" content="2017-08-02T05:51:44.000Z">
+<meta property="og:description" content="iOS 控件的一些小设置12textFiled.autocorrectionType = UITextAutocorrectionTypeNo;//取消自动联想输入textFiled.autocapitalizationType = UITextAutocapitalizationTypeNone;//取消首字母大写 NSString 转换成NSData 对象1NSData* xmlData =">
+<meta property="og:updated_time" content="2017-08-23T08:41:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="npm 使用方法备忘">
-<meta name="twitter:description" content="npm 降级1npm install npm@version --save 查询node 地址  1where node">
+<meta name="twitter:title" content="iOS一些控件细节设置">
+<meta name="twitter:description" content="iOS 控件的一些小设置12textFiled.autocorrectionType = UITextAutocorrectionTypeNo;//取消自动联想输入textFiled.autocapitalizationType = UITextAutocapitalizationTypeNone;//取消首字母大写 NSString 转换成NSData 对象1NSData* xmlData =">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -64,7 +64,7 @@
     </nav>
 </header>
       <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-npm-使用方法备忘" class="post-npm-使用方法备忘 post type-post status-publish format-standard hentry">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-iOS" class="post-iOS post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -72,29 +72,34 @@
         
   
     <h1 class="entry-title article-title">
-      npm 使用方法备忘
+      iOS一些控件细节设置
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/28/npm-使用方法备忘/" data-id="cj6rumqwa000chtfyxzok2fbw" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/23/iOS/" data-id="cj6rumqw10008htfyi8atnn1x" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <script src="/assets/js/APlayer.min.js"> </script><h3 id="npm-降级"><a href="#npm-降级" class="headerlink" title="npm 降级"></a>npm 降级</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install npm@version --save</div></pre></td></tr></table></figure>
-<p>查询node 地址 </p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">where</span> node</div></pre></td></tr></table></figure>
+        <script src="/assets/js/APlayer.min.js"> </script><h2 id="iOS-控件的一些小设置"><a href="#iOS-控件的一些小设置" class="headerlink" title="iOS 控件的一些小设置"></a>iOS 控件的一些小设置</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">textFiled.autocorrectionType = UITextAutocorrectionTypeNo;//取消自动联想输入</div><div class="line">textFiled.autocapitalizationType = UITextAutocapitalizationTypeNone;//取消首字母大写</div></pre></td></tr></table></figure>
+<p>NSString 转换成NSData 对象<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSData* xmlData = [@<span class="string">"testdata"</span> dataUsingEncoding:NSUTF8StringEncoding];</div></pre></td></tr></table></figure></p>
+<p>NSData 转换成NSString对象 </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">NSData * data; </div><div class="line">NSString *result = [[NSString alloc] initWithData:data  encoding:NSUTF8StringEncoding];</div></pre></td></tr></table></figure>
+<p>NSData 转换成char* </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">NSData *data; </div><div class="line">char *<span class="built_in">test</span>=[data bytes];</div><div class="line">``` </div><div class="line">char* 转换成NSData对象 </div><div class="line"></div><div class="line">```sh</div><div class="line">byte* tempData = malloc(sizeof(byte)*16); </div><div class="line">NSData *content=[NSData dataWithBytes:tempData length:16];</div></pre></td></tr></table></figure>
+<p><a href="https://github.com/danielgindi/Charts" target="_blank" rel="external">iOS绘制图表三方库</a></p>
+
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2017/07/28/npm-使用方法备忘/">
-    <time datetime="2017-07-28T01:19:44.000Z" class="entry-date">
-        2017-07-28
+    <a href="/2017/08/23/iOS/">
+    <time datetime="2017-08-23T01:51:52.000Z" class="entry-date">
+        2017-08-23
     </time>
 </a>
     
@@ -107,10 +112,10 @@
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
-        <span class="nav-previous"><a href="/2017/08/04/React-Native-备忘/" rel="prev"><span class="meta-nav">←</span> React-Native 备忘</a></span>
+        <span class="nav-previous"><a href="/2017/08/24/iOS启动过程中异常Crash/" rel="prev"><span class="meta-nav">←</span> iOS启动过程中异常Crash</a></span>
     
     
-        <span class="nav-next"><a href="/2017/07/25/react-native开发相关备忘/" rel="next">react-native开发相关备忘 <span class="meta-nav">→</span></a></span>
+        <span class="nav-next"><a href="/2017/08/20/吾家有女初长成/" rel="next">吾家有女初长成 <span class="meta-nav">→</span></a></span>
     
 </nav><!-- .nav-single -->
 

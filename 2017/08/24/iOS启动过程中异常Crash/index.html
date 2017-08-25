@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="人之一生如负重远行，欲速则不达" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>iOS启动过程中异常Crash | 紫莯</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="接上设备后打开崩溃日志记录对应的APP发现崩溃信息如下 原来是在设备启动的时候耗时太长,系统主动终结了该APP的运行,结合程序代码分析可能原因是由于在启动的时候有向后台注册一些信息,当信息返回的时候才开始进入界面.所以问题应该是这里出现的 使用charts框架技巧[柱状图](http://www.cnblogs.com/wanghuaijun/p/5587746.html)[折线图](http:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS启动过程中异常Crash">
+<meta property="og:url" content="http://zimu.tk/2017/08/24/iOS启动过程中异常Crash/index.html">
+<meta property="og:site_name" content="紫莯">
+<meta property="og:description" content="接上设备后打开崩溃日志记录对应的APP发现崩溃信息如下 原来是在设备启动的时候耗时太长,系统主动终结了该APP的运行,结合程序代码分析可能原因是由于在启动的时候有向后台注册一些信息,当信息返回的时候才开始进入界面.所以问题应该是这里出现的 使用charts框架技巧[柱状图](http://www.cnblogs.com/wanghuaijun/p/5587746.html)[折线图](http:">
+<meta property="og:image" content="http://ostglltzu.bkt.clouddn.com/17-8-24/35726988.jpg">
+<meta property="og:image" content="http://ostglltzu.bkt.clouddn.com/17-8-24/89231287.jpg">
+<meta property="og:image" content="http://ostglltzu.bkt.clouddn.com/17-8-24/55779980.jpg">
+<meta property="og:image" content="http://ostglltzu.bkt.clouddn.com/17-8-24/89672071.jpg">
+<meta property="og:updated_time" content="2017-08-24T07:37:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS启动过程中异常Crash">
+<meta name="twitter:description" content="接上设备后打开崩溃日志记录对应的APP发现崩溃信息如下 原来是在设备启动的时候耗时太长,系统主动终结了该APP的运行,结合程序代码分析可能原因是由于在启动的时候有向后台注册一些信息,当信息返回的时候才开始进入界面.所以问题应该是这里出现的 使用charts框架技巧[柱状图](http://www.cnblogs.com/wanghuaijun/p/5587746.html)[折线图](http:">
+<meta name="twitter:image" content="http://ostglltzu.bkt.clouddn.com/17-8-24/35726988.jpg">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="紫莯" rel="home">紫莯</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-iOS启动过程中异常Crash" class="post-iOS启动过程中异常Crash post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      iOS启动过程中异常Crash
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/24/iOS启动过程中异常Crash/" data-id="cj6rumqw20009htfygf1rmhse" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h4 id="接上设备后打开崩溃日志记录对应的APP发现崩溃信息如下"><a href="#接上设备后打开崩溃日志记录对应的APP发现崩溃信息如下" class="headerlink" title="接上设备后打开崩溃日志记录对应的APP发现崩溃信息如下"></a>接上设备后打开崩溃日志记录对应的APP发现崩溃信息如下</h4><p><img src="http://ostglltzu.bkt.clouddn.com/17-8-24/35726988.jpg" alt=""></p>
+<p>原来是在设备启动的时候耗时太长,系统主动终结了该APP的运行,结合程序代码分析可能原因是由于在启动的时候有向后台注册一些信息,当信息返回的时候才开始进入界面.所以问题应该是这里出现的</p>
+<h3 id="使用charts框架技巧"><a href="#使用charts框架技巧" class="headerlink" title="使用charts框架技巧"></a>使用charts框架技巧</h3><p><img src="http://ostglltzu.bkt.clouddn.com/17-8-24/89231287.jpg" alt=""><br>[柱状图]<br>(<a href="http://www.cnblogs.com/wanghuaijun/p/5587746.html" target="_blank" rel="external">http://www.cnblogs.com/wanghuaijun/p/5587746.html</a>)<br><img src="http://ostglltzu.bkt.clouddn.com/17-8-24/55779980.jpg" alt=""><br>[折线图]<br>(<a href="http://www.jianshu.com/p/039d6d9ff3f7" target="_blank" rel="external">http://www.jianshu.com/p/039d6d9ff3f7</a>)<br><img src="http://ostglltzu.bkt.clouddn.com/17-8-24/89672071.jpg" alt=""><br>[饼状图]<br>(<a href="http://www.jianshu.com/p/45194d861b21" target="_blank" rel="external">http://www.jianshu.com/p/45194d861b21</a>)</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/08/24/iOS启动过程中异常Crash/">
+    <time datetime="2017-08-24T03:43:36.000Z" class="entry-date">
+        2017-08-24
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2017/08/25/在OC项目里面引入Swift文件/" rel="prev"><span class="meta-nav">←</span> 在OC项目里面引入Swift文件</a></span>
+    
+    
+        <span class="nav-next"><a href="/2017/08/23/iOS/" rel="next">iOS一些控件细节设置 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2017/08/25/在OC项目里面引入Swift文件/">在OC项目里面引入Swift文件</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/24/iOS启动过程中异常Crash/">iOS启动过程中异常Crash</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/23/iOS/">iOS一些控件细节设置</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/20/吾家有女初长成/">吾家有女初长成</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/18/iOS的一些常用知识/">iOS的一些常用知识</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2017 Hugh Lee
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

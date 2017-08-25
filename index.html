@@ -65,6 +65,148 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-在OC项目里面引入Swift文件" class="post-在OC项目里面引入Swift文件 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/08/25/在OC项目里面引入Swift文件/">在OC项目里面引入Swift文件</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/25/在OC项目里面引入Swift文件/" data-id="cj6rumqwo000jhtfymbk87dc9" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h3 id="OC项目里面引入Swift"><a href="#OC项目里面引入Swift" class="headerlink" title="OC项目里面引入Swift"></a>OC项目里面引入Swift</h3><p>最近要使用Carts 框架绘制图表,使用了cocoapods集成,所以用起来还是十分方便,但是在图标上面要显示点击后的气泡(ballom),自己想使用作者的Demo里面的,所以需要在OC中引入Swift文件.</p>
+<p>新建swift的时候,系统会自动提醒李是否需要桥接文件,这个是Swift引用OC的时候使用的,<br>系统隐式的为我们生成了一个<mark>项目名-Swift.h</mark>的头文件,当我们每次新建/引入Swift的时候,系统会帮我们在该文件内自动将类和方法接口写好,我们在需要使用这个Swift文件的时候只需<mark>#import “项目-Swift.h”</mark>就可以直接调用所有的可以使用的swift类,而不需单独的引入头文件.</p>
+<p><img src="http://ostglltzu.bkt.clouddn.com/17-8-25/92484889.jpg" alt=""></p>
+<h4 id="系统自动生成的swift引用文件"><a href="#系统自动生成的swift引用文件" class="headerlink" title="系统自动生成的swift引用文件"></a>系统自动生成的swift引用文件</h4><p><img src="http://ostglltzu.bkt.clouddn.com/17-8-25/80982659.jpg" alt=""></p>
+<p><mark>如果文件不是新建的而是引入的,那么需要在<code>Build Phases</code>里面将文件添加到里面</mark></p>
+<p><img src="http://ostglltzu.bkt.clouddn.com/17-8-25/40633551.jpg" alt=""></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/08/25/在OC项目里面引入Swift文件/">
+    <time datetime="2017-08-25T11:55:34.000Z" class="entry-date">
+        2017-08-25
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-iOS启动过程中异常Crash" class="post-iOS启动过程中异常Crash post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/08/24/iOS启动过程中异常Crash/">iOS启动过程中异常Crash</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/24/iOS启动过程中异常Crash/" data-id="cj6rumqw20009htfygf1rmhse" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h4 id="接上设备后打开崩溃日志记录对应的APP发现崩溃信息如下"><a href="#接上设备后打开崩溃日志记录对应的APP发现崩溃信息如下" class="headerlink" title="接上设备后打开崩溃日志记录对应的APP发现崩溃信息如下"></a>接上设备后打开崩溃日志记录对应的APP发现崩溃信息如下</h4><p><img src="http://ostglltzu.bkt.clouddn.com/17-8-24/35726988.jpg" alt=""></p>
+<p>原来是在设备启动的时候耗时太长,系统主动终结了该APP的运行,结合程序代码分析可能原因是由于在启动的时候有向后台注册一些信息,当信息返回的时候才开始进入界面.所以问题应该是这里出现的</p>
+<h3 id="使用charts框架技巧"><a href="#使用charts框架技巧" class="headerlink" title="使用charts框架技巧"></a>使用charts框架技巧</h3><p><img src="http://ostglltzu.bkt.clouddn.com/17-8-24/89231287.jpg" alt=""><br>[柱状图]<br>(<a href="http://www.cnblogs.com/wanghuaijun/p/5587746.html" target="_blank" rel="external">http://www.cnblogs.com/wanghuaijun/p/5587746.html</a>)<br><img src="http://ostglltzu.bkt.clouddn.com/17-8-24/55779980.jpg" alt=""><br>[折线图]<br>(<a href="http://www.jianshu.com/p/039d6d9ff3f7" target="_blank" rel="external">http://www.jianshu.com/p/039d6d9ff3f7</a>)<br><img src="http://ostglltzu.bkt.clouddn.com/17-8-24/89672071.jpg" alt=""><br>[饼状图]<br>(<a href="http://www.jianshu.com/p/45194d861b21" target="_blank" rel="external">http://www.jianshu.com/p/45194d861b21</a>)</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/08/24/iOS启动过程中异常Crash/">
+    <time datetime="2017-08-24T03:43:36.000Z" class="entry-date">
+        2017-08-24
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-iOS" class="post-iOS post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/08/23/iOS/">iOS一些控件细节设置</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/23/iOS/" data-id="cj6rumqw10008htfyi8atnn1x" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h2 id="iOS-控件的一些小设置"><a href="#iOS-控件的一些小设置" class="headerlink" title="iOS 控件的一些小设置"></a>iOS 控件的一些小设置</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">textFiled.autocorrectionType = UITextAutocorrectionTypeNo;//取消自动联想输入</div><div class="line">textFiled.autocapitalizationType = UITextAutocapitalizationTypeNone;//取消首字母大写</div></pre></td></tr></table></figure>
+<p>NSString 转换成NSData 对象<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSData* xmlData = [@<span class="string">"testdata"</span> dataUsingEncoding:NSUTF8StringEncoding];</div></pre></td></tr></table></figure></p>
+<p>NSData 转换成NSString对象 </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">NSData * data; </div><div class="line">NSString *result = [[NSString alloc] initWithData:data  encoding:NSUTF8StringEncoding];</div></pre></td></tr></table></figure>
+<p>NSData 转换成char* </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">NSData *data; </div><div class="line">char *<span class="built_in">test</span>=[data bytes];</div><div class="line">``` </div><div class="line">char* 转换成NSData对象 </div><div class="line"></div><div class="line">```sh</div><div class="line">byte* tempData = malloc(sizeof(byte)*16); </div><div class="line">NSData *content=[NSData dataWithBytes:tempData length:16];</div></pre></td></tr></table></figure>
+<p><a href="https://github.com/danielgindi/Charts" target="_blank" rel="external">iOS绘制图表三方库</a></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/08/23/iOS/">
+    <time datetime="2017-08-23T01:51:52.000Z" class="entry-date">
+        2017-08-23
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-吾家有女初长成" class="post-吾家有女初长成 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -80,7 +222,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/20/吾家有女初长成/" data-id="cj6ne20es000f012wllh0whli" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/20/吾家有女初长成/" data-id="cj6rumqwl000ihtfy3ufojvr4" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -148,7 +290,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/18/iOS的一些常用知识/" data-id="cj6ne20ej000a012wyhxppfq7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/18/iOS的一些常用知识/" data-id="cj6rumqw6000bhtfyj0d6tzbs" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -219,7 +361,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/15/记录今天遇到的东西和开发中的技巧/" data-id="cj6ne20ex000h012wpnvyhr9q" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/15/记录今天遇到的东西和开发中的技巧/" data-id="cj6rumqwu000khtfyi3l3gtnx" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -277,7 +419,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/14/一个小坑-block修饰词错误引发的时间浪费/" data-id="cj6ne20eo000d012w4vpj490f" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/14/一个小坑-block修饰词错误引发的时间浪费/" data-id="cj6rumqwg000fhtfy259y0zn4" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -323,7 +465,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/13/十年之后山口山/" data-id="cj6ne20ev000g012wqmqim16c" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/13/十年之后山口山/" data-id="cj6rumqwk000hhtfyichj6unm" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -368,7 +510,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/10/鹅厂的Sonic/" data-id="cj6ne20f5000i012wvc70y7u3" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/10/鹅厂的Sonic/" data-id="cj6rumqww000lhtfymoqgkas7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -418,7 +560,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/08/iOS-设置布局起始/" data-id="cj6ne20ec0007012wohmhyd0w" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/08/iOS-设置布局起始/" data-id="cj6rumqw00007htfyob3u3566" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -452,156 +594,10 @@
 
 
   
-    <article id="post-CoreML-和TensorFlow的安装运行" class="post-CoreML-和TensorFlow的安装运行 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/08/07/CoreML-和TensorFlow的安装运行/">CoreML 和TensorFlow的安装运行</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/07/CoreML-和TensorFlow的安装运行/" data-id="cj6ne20do0000012w79re99om" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><h3 id="1-CoreML-Apple训练模型测试"><a href="#1-CoreML-Apple训练模型测试" class="headerlink" title="1. CoreML Apple训练模型测试"></a>1. CoreML Apple训练模型测试</h3><ol>
-<li>先下载下来.mlmodel文件并拖入工程中<p><a href="https://developer.apple.com/machine-learning/" target="_blank" rel="external">下载链接</a></p><br><p><img src="http://ostglltzu.bkt.clouddn.com/17-8-7/2674477.jpg" alt=""></p><br><mark>此处要注意 ,如果没有出现上图Model Class的箭头需要勾选下图内容<mark><p><img src="http://ostglltzu.bkt.clouddn.com/17-8-7/71022914.jpg" alt=""></p></mark></mark></li>
-<li>导入CoreML库文件<br><img src="http://ostglltzu.bkt.clouddn.com/17-8-7/51996763.jpg" alt=""></li>
-<li>编写代码<br><img src="http://ostglltzu.bkt.clouddn.com/17-8-7/64366435.jpg" alt=""></li>
-</ol>
-<h3 id="2-TensorFlow-安装"><a href="#2-TensorFlow-安装" class="headerlink" title="2. TensorFlow 安装"></a>2. TensorFlow 安装</h3><p>我使用的是容器安装的方式</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$ sudo easy_install pip  <span class="comment"># 如果还没有安装 pip</span></div><div class="line">$ sudo pip install --upgrade virtualenv</div><div class="line"></div><div class="line">$ virtualenv --system-site-packages ~/tensorflow</div><div class="line">$ <span class="built_in">cd</span> ~/tensorflow</div><div class="line"></div><div class="line">$ <span class="built_in">source</span> bin/activate  <span class="comment"># 如果使用 bash zsh 等</span></div><div class="line"></div><div class="line">$ pip install --upgrade tensorflow       ＃<span class="keyword">for</span> Python 2.7</div><div class="line"> $ pip3 install --upgrade tensorflow      ＃<span class="keyword">for</span> Python 3.n</div></pre></td></tr></table></figure>
-<p>安装完成</p>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/08/07/CoreML-和TensorFlow的安装运行/">
-    <time datetime="2017-08-07T08:41:28.000Z" class="entry-date">
-        2017-08-07
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-React-Native-备忘" class="post-React-Native-备忘 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/08/04/React-Native-备忘/">React-Native 备忘</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/04/React-Native-备忘/" data-id="cj6ne20e40005012w5euy5ciy" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><ol>
-<li>在react-native的标签内使用<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">`...<span class="variable">$&#123;...&#125;</span>`</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>模板没有效果</p>
-<ol>
-<li>报错<br><img src="http://ostglltzu.bkt.clouddn.com/17-8-4/52097411.jpg" alt="img"></li>
-</ol>
-<p>解决办法:在FlatList 标签内添加</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;FlistList</div><div class="line">keyExtractor=&#123;this._keyExtractor&#125;</div><div class="line">/&gt;</div><div class="line"><span class="keyword">function</span>   _keyExtractor = (item,index) =&gt; item.id;</div></pre></td></tr></table></figure>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/08/04/React-Native-备忘/">
-    <time datetime="2017-08-04T01:41:39.000Z" class="entry-date">
-        2017-08-04
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-npm-使用方法备忘" class="post-npm-使用方法备忘 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/07/28/npm-使用方法备忘/">npm 使用方法备忘</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/28/npm-使用方法备忘/" data-id="cj6ne20ei0009012we0kqy8c1" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><h3 id="npm-降级"><a href="#npm-降级" class="headerlink" title="npm 降级"></a>npm 降级</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install npm@version --save</div></pre></td></tr></table></figure>
-<p>查询node 地址 </p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">where</span> node</div></pre></td></tr></table></figure>
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/07/28/npm-使用方法备忘/">
-    <time datetime="2017-07-28T01:19:44.000Z" class="entry-date">
-        2017-07-28
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
   
     <nav id="pagination">
       <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
       </nav>
     </nav>
   
@@ -627,23 +623,23 @@
       <ul>
         
           <li>
+            <a href="/2017/08/25/在OC项目里面引入Swift文件/">在OC项目里面引入Swift文件</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/24/iOS启动过程中异常Crash/">iOS启动过程中异常Crash</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/23/iOS/">iOS一些控件细节设置</a>
+          </li>
+        
+          <li>
             <a href="/2017/08/20/吾家有女初长成/">吾家有女初长成</a>
           </li>
         
           <li>
             <a href="/2017/08/18/iOS的一些常用知识/">iOS的一些常用知识</a>
-          </li>
-        
-          <li>
-            <a href="/2017/08/15/记录今天遇到的东西和开发中的技巧/">记录今天遇到的东西和开发中的技巧</a>
-          </li>
-        
-          <li>
-            <a href="/2017/08/14/一个小坑-block修饰词错误引发的时间浪费/">一个小坑--block修饰词错误引发的时间浪费 </a>
-          </li>
-        
-          <li>
-            <a href="/2017/08/13/十年之后山口山/">十年之后山口山</a>
           </li>
         
       </ul>
