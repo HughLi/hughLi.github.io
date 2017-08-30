@@ -13,18 +13,18 @@
   
   
   
-  <title>apple 开启ftp服务 | 紫莯</title>
+  <title>apple 开启ftp服务等乱七八糟的事儿 | 紫莯</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1234开启服务➜  ~ sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist关闭服务➜  ~ sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist">
+  <meta name="description" content="1234开启服务➜  ~ sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist关闭服务➜  ~ sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist Linux 下面解压.XZ .tar 等,并将SD卡格式化后写入 解压  123xz -">
 <meta property="og:type" content="article">
-<meta property="og:title" content="apple 开启ftp服务">
+<meta property="og:title" content="apple 开启ftp服务等乱七八糟的事儿">
 <meta property="og:url" content="http://zimu.tk/2017/08/30/apple-开启ftp服务/index.html">
 <meta property="og:site_name" content="紫莯">
-<meta property="og:description" content="1234开启服务➜  ~ sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist关闭服务➜  ~ sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist">
-<meta property="og:updated_time" content="2017-08-30T07:27:46.000Z">
+<meta property="og:description" content="1234开启服务➜  ~ sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist关闭服务➜  ~ sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist Linux 下面解压.XZ .tar 等,并将SD卡格式化后写入 解压  123xz -">
+<meta property="og:updated_time" content="2017-08-30T09:05:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="apple 开启ftp服务">
-<meta name="twitter:description" content="1234开启服务➜  ~ sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist关闭服务➜  ~ sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist">
+<meta name="twitter:title" content="apple 开启ftp服务等乱七八糟的事儿">
+<meta name="twitter:description" content="1234开启服务➜  ~ sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist关闭服务➜  ~ sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist Linux 下面解压.XZ .tar 等,并将SD卡格式化后写入 解压  123xz -">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -72,7 +72,7 @@
         
   
     <h1 class="entry-title article-title">
-      apple 开启ftp服务
+      apple 开启ftp服务等乱七八糟的事儿
     </h1>
   
 
@@ -86,7 +86,18 @@
     <div class="entry-content">
       
         <script src="/assets/js/APlayer.min.js"> </script><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">开启服务</div><div class="line">➜  ~ sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist</div><div class="line">关闭服务</div><div class="line">➜  ~ sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist</div></pre></td></tr></table></figure>
-
+<h3 id="Linux-下面解压-XZ-tar-等-并将SD卡格式化后写入"><a href="#Linux-下面解压-XZ-tar-等-并将SD卡格式化后写入" class="headerlink" title="Linux 下面解压.XZ .tar 等,并将SD卡格式化后写入"></a>Linux 下面解压.XZ .tar 等,并将SD卡格式化后写入</h3><ol>
+<li>解压</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">xz -d **.tar.xz</div><div class="line">tar -xv -f **.tar</div><div class="line">tar -Jxv -f **.tar.xz</div></pre></td></tr></table></figure>
+<ol>
+<li>查看盘并做分区删除等操作</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">1.输入命令“fdisk -l”查看设备挂载的位置，因为这个在设备挂载的时候有可能会发生变化。</div><div class="line"></div><div class="line">  假设设备挂载到了 /dev/sdc 需要对该设备进行分区</div><div class="line"></div><div class="line">2.输入命令“fdisk /dev/sdc”进入分区功能：</div><div class="line"></div><div class="line">  a.在此状态下输入“m”可以查看帮助</div><div class="line"></div><div class="line">  b.在此状态下输入“d” 删除已经存在的分区，第一次可跳过，如果要重新分区就需要。</div><div class="line"></div><div class="line">  c.在此状态下输入“p” 查看已经存在的分区</div><div class="line"></div><div class="line">  d.在此状态下输入“n” 新增分区，根据提示需要输入分区号，之后还需要输入分区大小</div><div class="line"></div><div class="line">  e.在此状态下输入“t” 改变文件系统格式，命令“l”显示对应文件系统格式的id（提示上也有这个说明）</div><div class="line"></div><div class="line">  f.在此状态下输入“w” 保存分区兵退出</div><div class="line"></div><div class="line">其它的一些命令就输入“m”查看</div></pre></td></tr></table></figure>
+<ol>
+<li>格式化</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">1. 卸载盘</div><div class="line">为了防止在写入镜像的时候有其他读取或写入，我们需要卸载设备。如果有两个分区就都要卸载。</div><div class="line">umount /dev/sdb1</div><div class="line">umount /dev/sdb2</div><div class="line"></div><div class="line">2. 写入 </div><div class="line"></div><div class="line">sudo dd bs=4M <span class="keyword">if</span>=2013-09-25-wheezy-raspbian.img of=/dev/sdb</div><div class="line"></div><div class="line">bs  一次写入多大的块，(blocksize的缩写),</div><div class="line">4M  一般都没问题，如果不行，试试改成1M，</div><div class="line"><span class="keyword">if</span>  下载的镜像的路径（input file缩写），</div><div class="line">of  设备地址（output file的缩写)</div><div class="line"></div><div class="line">如果你非常想看到此时的拷贝进度,打开另一个命令窗口</div><div class="line">sudo pkill -USR1 -n -x dd</div></pre></td></tr></table></figure>
       
     </div><!-- .entry-content -->
 
@@ -138,7 +149,7 @@
       <ul>
         
           <li>
-            <a href="/2017/08/30/apple-开启ftp服务/">apple 开启ftp服务</a>
+            <a href="/2017/08/30/apple-开启ftp服务/">apple 开启ftp服务等乱七八糟的事儿</a>
           </li>
         
           <li>
