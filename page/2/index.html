@@ -65,6 +65,155 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-记录今天遇到的东西和开发中的技巧" class="post-记录今天遇到的东西和开发中的技巧 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/08/15/记录今天遇到的东西和开发中的技巧/">记录今天遇到的东西和开发中的技巧</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/15/记录今天遇到的东西和开发中的技巧/" data-id="cj777bacs000plh2w65vxdsas" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h3 id="1-登录页面逻辑设计"><a href="#1-登录页面逻辑设计" class="headerlink" title="1. 登录页面逻辑设计"></a>1. 登录页面逻辑设计</h3><ul>
+<li>有两种方法<ol>
+<li>主要是根据情况设置谁为window.rootViewcontroller的问题。在appdelegate.h文件中监听通知，登录与退出。在默认加载时window.rootViewcontroller 设置为登录的viewcontroller。当登录成功后发送通知，在appdelegate中接收通知，将修改window.rootViewController为uitabbarcontroller.相应的当退出时，发送退出通知，这时在appdelegate中接收到退出通知，将window.rootViewController设置为登录的viewcontroller.</li>
+<li>默认就设置uitabbarController为window.rootViewController.　在登录时使用presentviewcontroller弹出登录的viewcontroller.这样你看到的第一个视图就是登录的视图。当登录成功后dismiss登录viewcontroller，发通知重新reload tabbarcontroller 。退出时重新present登录窗口就可以了</li>
+</ol>
+</li>
+</ul>
+<h3 id="2-怎样连续dismiss2个ViewController"><a href="#2-怎样连续dismiss2个ViewController" class="headerlink" title="2. 怎样连续dismiss2个ViewController"></a>2. 怎样连续dismiss2个ViewController</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];</div></pre></td></tr></table></figure>
+<h3 id="3-NSJSONReadingMutableContainers等的含义"><a href="#3-NSJSONReadingMutableContainers等的含义" class="headerlink" title="3. NSJSONReadingMutableContainers等的含义"></a>3. NSJSONReadingMutableContainers等的含义</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&amp;error];</div><div class="line">NSJSONReadingMutableContainers = (1UL &lt;&lt; 0), // 返回的是一个可变数组或者字段</div><div class="line">NSJSONReadingMutableLeaves = (1UL &lt;&lt; 1), // 不仅返回的最外层是可变的, 内部的子数值或字典也是可变对象</div><div class="line">NSJSONReadingAllowFragments = (1UL &lt;&lt; 2) // 返回的最外侧可不是字典或者数组 可以是如 <span class="string">"10"</span></div></pre></td></tr></table></figure>
+<p>如果你不想返回一个可变的对象, 那么可以传入参数:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kNilOptions</div></pre></td></tr></table></figure>
+<h3 id="4-升级了ruby后遇到的坑"><a href="#4-升级了ruby后遇到的坑" class="headerlink" title="4. 升级了ruby后遇到的坑"></a>4. 升级了ruby后遇到的坑</h3><p>由于安装gollum 需要的ruby版本最低为2.2.0,所以使用rvm 把ruby升级了,后面就发现我的cocoapods不能使用了,报错如下</p>
+<p><img src="http://ostglltzu.bkt.clouddn.com/17-8-15/80796610.jpg" alt=""></p>
+<p>网上有坑爹的说是安装rails后会好,好个毛线,最后在新的路径下重装后好了</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">➜  ~ sudo gem install -n /usr/<span class="built_in">local</span>/bin cocoapods</div></pre></td></tr></table></figure>
+<h3 id="5-java-服务器相关"><a href="#5-java-服务器相关" class="headerlink" title="5. java 服务器相关"></a>5. java 服务器相关</h3><p>jar包运行命令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar &lt;包名.jar&gt;</div></pre></td></tr></table></figure>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/08/15/记录今天遇到的东西和开发中的技巧/">
+    <time datetime="2017-08-15T07:50:42.000Z" class="entry-date">
+        2017-08-15
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-一个小坑-block修饰词错误引发的时间浪费" class="post-一个小坑-block修饰词错误引发的时间浪费 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/08/14/一个小坑-block修饰词错误引发的时间浪费/">一个小坑--block修饰词错误引发的时间浪费 </a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/14/一个小坑-block修饰词错误引发的时间浪费/" data-id="cj777back000hlh2wdujumv9b" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><p>报错如图:</p>
+<p><img src="http://ostglltzu.bkt.clouddn.com/17-8-14/10927584.jpg" alt=""></p>
+<p><img src="http://ostglltzu.bkt.clouddn.com/17-8-14/3479218.jpg" alt=""></p>
+<p>由于在之前的项目中直接把property给拖了一份到代码块,导致这次的这个错误,前后排查了block的循环引用,类文件头部包含等各种问题,最后实在没辙,经过亲友团的帮助发现这个坑,黄油手啊,🐽</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/08/14/一个小坑-block修饰词错误引发的时间浪费/">
+    <time datetime="2017-08-14T13:29:56.000Z" class="entry-date">
+        2017-08-14
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-十年之后山口山" class="post-十年之后山口山 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/08/13/十年之后山口山/">十年之后山口山</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/13/十年之后山口山/" data-id="cj777bacm000ilh2wnk1a1sdb" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><p>Mac也能玩wow 好吧 十年之后,我成了[天堂]的会长了,我也很无奈啊🤷‍♀️,谁叫你们全都没上线了呢….</p>
+<p><img src="http://ostglltzu.bkt.clouddn.com/17-8-14/38113519.jpg" alt=""></p>
+<p>花了十分钟,通关了冰冠堡垒,我能说啥呢,为啥5年前打8个小时都打不过<br><img src="http://ostglltzu.bkt.clouddn.com/17-8-14/80694385.jpg" alt=""><br><img src="http://ostglltzu.bkt.clouddn.com/17-8-14/81499034.jpg" alt=""></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/08/13/十年之后山口山/">
+    <time datetime="2017-08-13T14:38:28.000Z" class="entry-date">
+        2017-08-13
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-鹅厂的Sonic" class="post-鹅厂的Sonic post type-post status-publish format-standard hentry">
     <!---->
 
@@ -80,7 +229,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/10/鹅厂的Sonic/" data-id="cj6ztm79j000m542wo34iw277" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/10/鹅厂的Sonic/" data-id="cj777bad1000qlh2wniremxam" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -130,7 +279,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/08/iOS-设置布局起始/" data-id="cj6ztm78u0008542w37fcfxjg" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/08/iOS-设置布局起始/" data-id="cj777baca0008lh2w6ignyur6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -179,7 +328,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/07/CoreML-和TensorFlow的安装运行/" data-id="cj6ztm78c0001542wjpuh4uwc" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/07/CoreML-和TensorFlow的安装运行/" data-id="cj777babp0000lh2w6fmixiw5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -229,7 +378,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/04/React-Native-备忘/" data-id="cj6ztm78m0005542wlmwmp63q" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/04/React-Native-备忘/" data-id="cj777bac20005lh2wu5a8hn5e" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -281,7 +430,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/28/npm-使用方法备忘/" data-id="cj6ztm790000d542whzn9qs02" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/28/npm-使用方法备忘/" data-id="cj777baci000elh2wg15dh65c" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -325,7 +474,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/25/react-native开发相关备忘/" data-id="cj6ztm791000f542wmnfl5kdk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/25/react-native开发相关备忘/" data-id="cj777bacj000flh2w3wv3karh" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -380,7 +529,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/21/Pod-search-找不到库的解决方案/" data-id="cj6ztm78e0002542w11c2zmsv" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/21/Pod-search-找不到库的解决方案/" data-id="cj777babx0003lh2wntdtrz12" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -408,330 +557,6 @@
     <a href="/2017/07/21/Pod-search-找不到库的解决方案/">
     <time datetime="2017-07-21T01:12:02.000Z" class="entry-date">
         2017-07-21
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-Python-在Mac-上的多版本管理及pip安装" class="post-Python-在Mac-上的多版本管理及pip安装 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/07/20/Python-在Mac-上的多版本管理及pip安装/">Python 在Mac 上的多版本管理及pip安装</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/20/Python-在Mac-上的多版本管理及pip安装/" data-id="cj6ztm78i0004542wex4mqpcf" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><h3 id="1-安装homebrew"><a href="#1-安装homebrew" class="headerlink" title="1. 安装homebrew"></a>1. 安装homebrew</h3><p>官网 <a href="http://brew.sh/index_zh-cn.html" target="_blank" rel="external">http://brew.sh/index_zh-cn.html</a></p>
-<p>打开终端，在终端中粘贴如下脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div></pre></td></tr></table></figure></p>
-<p>测试是否安装成功</p>
-<p>在终端中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew -v</div></pre></td></tr></table></figure></p>
-<p>出现类似提示，即代表安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Homebrew 0.9.5 (Git revision 1021; last commit 2016-03-30)</div></pre></td></tr></table></figure></p>
-<h3 id="2-安装pyenv"><a href="#2-安装pyenv" class="headerlink" title="2.安装pyenv"></a>2.安装pyenv</h3><p>在终端中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install pyenv</div></pre></td></tr></table></figure></p>
-<p>验证是否安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyenv -v</div></pre></td></tr></table></figure></p>
-<p> 出现类似结果，即代表安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyenv 20150310</div></pre></td></tr></table></figure></p>
-<h3 id="3-查看可安装的Python版本"><a href="#3-查看可安装的Python版本" class="headerlink" title="3.查看可安装的Python版本"></a>3.查看可安装的Python版本</h3><p>在终端中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyenv install --list</div></pre></td></tr></table></figure></p>
-<p> 会列出可安装的python版本号</p>
-<h3 id="4-安装特定版本的Python"><a href="#4-安装特定版本的Python" class="headerlink" title="4.安装特定版本的Python"></a>4.安装特定版本的Python</h3><p>在终端中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyenv install &lt;version&gt;</div></pre></td></tr></table></figure></p>
-<p>安装对应的Python版本，如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyenv install 2.7.11</div></pre></td></tr></table></figure></p>
-<h3 id="5-异常处理"><a href="#5-异常处理" class="headerlink" title="5.异常处理"></a>5.异常处理</h3><p>如出现如下异常：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">Installing Python-2.7.11...</div><div class="line">ERROR: The Python zlib extension was not compiled. Missing the zlib?</div><div class="line"></div><div class="line">Please consult to the Wiki page to fix the problem.</div><div class="line">https://github.com/yyuu/pyenv/wiki/Common-build-problems</div><div class="line"></div><div class="line"></div><div class="line">BUILD FAILED (OS X 10.11.5 using python-build 20160130)</div><div class="line"></div><div class="line">Inspect or clean up the working tree at /var/folders/fb/7406jr3s60z_tdpxxqm2s9hh0000gn/T/python-build.20160616162746.48644</div><div class="line">Results logged to /var/folders/fb/7406jr3s60z_tdpxxqm2s9hh0000gn/T/python-build.20160616162746.48644.log</div><div class="line"></div><div class="line">Last 10 log lines:</div><div class="line">rm -f /Users/Matrix/.pyenv/versions/2.7.11/share/man/man1/python.1</div><div class="line">(cd /Users/Matrix/.pyenv/versions/2.7.11/share/man/man1; ln -s python2.1 python.1)</div><div class="line">if test &quot;xno&quot; != &quot;xno&quot;  ; then \</div><div class="line">        case no in \</div><div class="line">            upgrade) ensurepip=&quot;--upgrade&quot; ;; \</div><div class="line">            install|*) ensurepip=&quot;&quot; ;; \</div><div class="line">        esac; \</div><div class="line">         ./python.exe -E -m ensurepip \</div><div class="line">            $ensurepip --root=/ ; \</div><div class="line">    fi</div><div class="line">yujingyao:2.7.11 Matrix$ CFLAGS=&quot;-I$(brew --prefix openssl)/include&quot; LDFLAGS=&quot;-L$(brew --prefix openssl)/lib&quot; pyenv install 3.6-Dev</div><div class="line">Cloning https://hg.python.org/cpython...</div><div class="line">error: please install `mercurial` and try again</div></pre></td></tr></table></figure>
-<p> 则在终端中输入，注意替换如下代码的版本号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CFLAGS=&quot;-I$(brew --prefix openssl)/include -I$(xcrun --show-sdk-path)/usr/include&quot; \</div><div class="line">LDFLAGS=&quot;-L$(brew --prefix openssl)/lib&quot; \</div><div class="line">pyenv install -v 2.7.11</div></pre></td></tr></table></figure></p>
-<p> 在EI Capitan实测有效</p>
-<p>资料来源：</p>
-<blockquote>
-<p><a href="https://github.com/yyuu/pyenv/issues/448" target="_blank" rel="external">https://github.com/yyuu/pyenv/issues/448</a></p>
-</blockquote>
-<p>如有其他异常可以参考</p>
-<blockquote>
-<p><a href="https://github.com/yyuu/pyenv/wiki/Common-build-problems" target="_blank" rel="external">https://github.com/yyuu/pyenv/wiki/Common-build-problems</a> </p>
-</blockquote>
-<h3 id="6-查看pyenv已安装的Python版本"><a href="#6-查看pyenv已安装的Python版本" class="headerlink" title="6.查看pyenv已安装的Python版本"></a>6.查看pyenv已安装的Python版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyenv versions</div></pre></td></tr></table></figure>
-<p> 在终端中会列出已安装的Python版本，如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">2.7.11</div><div class="line"></div><div class="line">3.5.1</div></pre></td></tr></table></figure>
-<h3 id="7-编辑-bash-profile文件"><a href="#7-编辑-bash-profile文件" class="headerlink" title="7.编辑.bash_profile文件"></a>7.编辑.bash_profile文件</h3><p>在终端中输入如下命令，进入当前用户的Home目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd ~</div></pre></td></tr></table></figure>
-<p>输入如下命令，打开.bash_profile文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">open .bash_profile</div></pre></td></tr></table></figure>
-<p>如不存在，则输入如下命令，创建文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">touch .bash_profile</div></pre></td></tr></table></figure>
-<p>编辑文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">open -e .bash_profile</div></pre></td></tr></table></figure>
-<p>在弹出的.bash_profile文件中新增</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">if which pyenv &gt; /dev/null; then eval &quot;$(pyenv init -)&quot;; fi</div></pre></td></tr></table></figure>
-<p>command + s 保存文件</p>
-<p>在终端中输入如下命令，使用更新之后的.bash_profile内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source .bash_profile</div></pre></td></tr></table></figure>
-<h3 id="8-指定目录切换指定版本的Python"><a href="#8-指定目录切换指定版本的Python" class="headerlink" title="8.指定目录切换指定版本的Python"></a>8.指定目录切换指定版本的Python</h3><p>在终端中cd到特定目录，路径名称自行修改</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd /Users/Matrix/Documents/Projects/Python/3.5.1</div></pre></td></tr></table></figure>
-<p>输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyenv local &lt;version&gt;</div></pre></td></tr></table></figure>
-<p>如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyenv local 3.5.1</div></pre></td></tr></table></figure>
-<h3 id="9-设定全局的Python版本"><a href="#9-设定全局的Python版本" class="headerlink" title="9.设定全局的Python版本"></a>9.设定全局的Python版本</h3><p>在终端中输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyenv global &lt;version&gt;</div></pre></td></tr></table></figure>
-<p>如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyenv global 3.5.11</div></pre></td></tr></table></figure>
-<p>不建议如此操作，可能会导致部分系统程序无法正常工作</p>
-<h3 id="10-检查是否切换成功"><a href="#10-检查是否切换成功" class="headerlink" title="10.检查是否切换成功"></a>10.检查是否切换成功</h3><p>在终端中cd到特定目录，路径名称自行修改</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd /Users/Matrix/Documents/Projects/Python/3.5.1</div></pre></td></tr></table></figure>
-<p> 在终端中输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python</div></pre></td></tr></table></figure>
-<p>会列出当前目录使用的python版本，和设置的版本一样则代表切换成功</p>
-<h3 id="11-使用python3-安装pip"><a href="#11-使用python3-安装pip" class="headerlink" title="11. 使用python3 安装pip"></a>11. 使用python3 安装pip</h3><pre><code>python3  setup.py install
-</code></pre>
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/07/20/Python-在Mac-上的多版本管理及pip安装/">
-    <time datetime="2017-07-20T01:29:42.000Z" class="entry-date">
-        2017-07-20
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-MacOS-系统加载项禁用" class="post-MacOS-系统加载项禁用 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/07/19/MacOS-系统加载项禁用/">MacOS 系统加载项禁用</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/19/MacOS-系统加载项禁用/" data-id="cj6ztm7880000542wts2jsmqo" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><p>Mac OS启动服务优化高级篇（launchd tuning）<br>Mac下的启动服务主要有三个地方可配置：<br>1，系统偏好设置-&gt;帐户-&gt;登陆项<br>2，/System/Library/StartupItems 和 /Library/StartupItems/<br>3，launchd 系统初始化进程配置。</p>
-<p>前两种优化比较简单，本文主要介绍的是第三种更为复杂的launchd配置优化。<br>launchd是Mac OS下，用于初始化系统环境的关键进程。类似Linux下的init, rc。</p>
-<p>我们先来看一下Mac OS X的启动原理：<br>1，mac固件激活，初始化硬件，加载BootX引导器。<br>2，BootX加载内核与内核扩展(kext)。<br>3，内核启动launchd进程。<br>4，launchd根据 ?/System/Library/LaunchAgents ,?/System/Library/LaunchDaemons , ?/Library/LaunchDaemons,?Library/LaunchAgents , ~/Library/LaunchAgents?里的plist配置，启动服务守护进程。</p>
-<p>看完了Mac OS X的启动原理，我们不难发觉?/System/Library/LaunchAgents ,?/System/Library/LaunchDaemons , ?/Library/LaunchDaemons,?Library/LaunchAgents?五个目录下的plist属性文件是优化系统的关键。</p>
-<p>下面再来理解几个基础概念：<br>/System/Library和/Library和~/Library目录的区别？<br>/System/Library目录是存放Apple自己开发的软件。<br>/Library目录是系统管理员存放的第三方软件。<br>~/Library/是用户自己存放的第三方软件。</p>
-<p>LaunchDaemons和LaunchAgents的区别？<br>LaunchDaemons是用户未登陆前就启动的服务（守护进程）。<br>LaunchAgents是用户登陆后启动的服务（守护进程）。</p>
-<p>上面提到的五个目录下的plist文件格式及每个字段的含义：</p>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Label</td>
-<td>The name of the job</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>ProgramArguments</td>
-<td>Strings to pass to the program when it is executed</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>UserName</td>
-<td>The job will be run as the given user, who may not necessarily be the one who submitted it to launchd.</td>
-<td>no</td>
-</tr>
-<tr>
-<td>inetdCompatibility</td>
-<td>Indicates that the daemon expects to be run as if it were launched by?inetd</td>
-<td>no</td>
-</tr>
-<tr>
-<td>Program</td>
-<td>The path to your executable. This key can save the ProgramArguments key for flags and arguments.</td>
-<td>no</td>
-</tr>
-<tr>
-<td>onDemand</td>
-<td>A?boolean?flag that defines if a job runs continuously or not</td>
-<td>no</td>
-</tr>
-<tr>
-<td>RootDirectory</td>
-<td>The job will be?chrooted?into another directory</td>
-<td>no</td>
-</tr>
-<tr>
-<td>ServiceIPC</td>
-<td>Whether the daemon can speak IPC to launchd</td>
-<td>no</td>
-</tr>
-<tr>
-<td>WatchPaths</td>
-<td>Allows launchd to start a job based on modifications at a file-system path</td>
-<td>no</td>
-</tr>
-<tr>
-<td>QueueDirectories</td>
-<td>Similar to WatchPath, a queue will only watch an empty directory for new files</td>
-<td>no</td>
-</tr>
-<tr>
-<td>StartInterval</td>
-<td>Used to schedule a job that runs on a repeating schedule. Specified as the number of seconds to wait between runs.</td>
-<td>no</td>
-</tr>
-<tr>
-<td>StartCalendarInterval</td>
-<td>Job scheduling. The?syntax?is similar to?cron.</td>
-<td>no</td>
-</tr>
-<tr>
-<td>HardResourceLimits</td>
-<td>Controls restriction of the resources consumed by any job</td>
-<td>no</td>
-</tr>
-<tr>
-<td>LowPriorityIO</td>
-<td>Tells the kernel that this task is of a low priority when doing file system I/O</td>
-<td>no</td>
-</tr>
-<tr>
-<td>Sockets</td>
-<td>An array can be used to specify what socket the daemon will listen on for launch on demand</td>
-<td>no</td>
-</tr>
-</tbody>
-</table>
-<p>看不懂上面地plist配置吗？没关系，我们的优化策略是完全卸载服务，所以我们不用关心plist里的配置含义。</p>
-<p>开始优化<br>禁用服务，我们需要用到Mac OS提供的一个工具指令－launchctl<br>launchctl 指令会针对服务设置一个禁用标志，launchd启动时会先检查这个服务是否被禁用，从而确定是否需要启用这个服务。</p>
-<p>禁用服务的方法1<br>先找到禁用标志文件 /var/db/launchd.db/com.apple.launchd/overrides.plist，查看你要禁用的服务是否已被禁用了。<br>有些服务已被禁用，但未列在overrides.plist里。此时，你还需要检查这个服务的plist文件Label字段是否已经标记为 Disable。</p>
-<p>确认这个服务未禁用后，我们就可以通过调用如下命令，来禁用服务：<br>sudo launchctl unload plist文件路径<br>sudo launchctl unload -w?plist文件路径<br>比如，我想禁用spotlight，则输入<br>sudo launchctl unload?/System/Library/LaunchAgents/com.apple.Spotlight.plist<br>sudo launchctl unload -w?/System/Library/LaunchAgents/com.apple.Spotlight.plist</p>
-<p>禁用完服务以后，重启Mac OS即可生效。</p>
-<p>禁用服务的方法2，一种更有效且暴力的方法（推荐）<br>先卸载服务<br>sudo launchctl unload /System/Library/LaunchAgents/com.apple.Spotlight.plist<br>然后将plist文件mv到其他目录备份。重启。搞定。是不是很简单!</p>
-<p>我个人比较喜欢这种禁用服务的方式，所以推荐一下。</p>
-<p>如果发现服务禁用后，系统或软件出现异常，可以通过如下命令，还原服务：<br>方法1:<br>sudo launchctl load -wF?plist文件路径<br>方法2:<br>将备份的plist文件mv回原来的文件夹。<br>sudo launchctl load plist文件路径</p>
-<p>注意：系统级服务的禁用要异常小心，请在禁用前google，确保你熟知这个服务的作用。否则可能导致系统无法启动。<br>最安全的做法就是不要去禁用它了。</p>
-<p>当然，用户服务我们还是可以放心禁用的，有问题最多再启用呗。</p>
-<p>下面是我禁用的服务列表：<br>/System/Library/LaunchDaemons/com.apple.metadata.mds.plist (禁用spotlight的前提)<br>/System/Library/LaunchAgents/com.apple.Spotlight.plist (Spotlight)<br>/Library/LaunchDaemons/com.google.keystone.daemon.plist ?(Google Software Update)<br>/Library/LaunchAgents/com.google.keystone.root.agent ?(Google Software Update)<br>~/Library/LaunchAgents/com.google.keystone.agent.plist?(Google Software Update，用户下的进程不需要加 sudo)<br>~/Library/LaunchAgents/com.apple.CSConfigDotMacCert-ken.wug\@me.com-SharedServices.Agent.plist (me.com的共享服务，我不用)<br>/System/Library/LaunchDaemons/org.cups.cupsd.plist （打印机）<br>/System/Library/LaunchDaemons/org.cups.cups-lpd.plist （打印机）<br>/System/Library/LaunchDaemons/com.apple.blued.plist （蓝牙）<br>/System/Library/LaunchAgents/com.apple.AirPortBaseStationAgent.plist （apple无线基站，我没有这个设备）</p>
-<p>知道守护进程（服务）名，如何找到对应的plist文件？<br>将进程（服务）名拷贝，然后到 /System/Library/LaunchAgents ,?/System/Library/LaunchDaemons , ?/Library/LaunchDaemons,?Library/LaunchAgents , ~/Library/LaunchAgents 五个目录里，通过以下命令查找：</p>
-<p>ll|grep 进程(服务)名<br>比如<br>ll|grep blued<br>在 ?/System/Library/LaunchDaemons 中找到了它。接下来，请按上面指导的步骤，禁用该服务</p>
-<p>比如McAfee的禁用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /Library/LaunchDaemons</div><div class="line">sudo launchctl unload com.mcafee.agent.macmn.plist</div></pre></td></tr></table></figure>
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/07/19/MacOS-系统加载项禁用/">
-    <time datetime="2017-07-19T02:54:50.000Z" class="entry-date">
-        2017-07-19
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-react-native-8081端口被mcafee霸占后如何搬家" class="post-react-native-8081端口被mcafee霸占后如何搬家 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/07/18/react-native-8081端口被mcafee霸占后如何搬家/">react-native 8081端口被mcafee霸占后如何搬家</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/18/react-native-8081端口被mcafee霸占后如何搬家/" data-id="cj6ztm791000e542wt2j0ekf7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><h5 id="在有些公司电脑上出于内部安全管理的原因-电脑上安装了McAfee-所以8081端口基本就算是废了-该端口会被McAfee一直霸占着-关掉进程后也没辙-关掉后会自动开启新的进程"><a href="#在有些公司电脑上出于内部安全管理的原因-电脑上安装了McAfee-所以8081端口基本就算是废了-该端口会被McAfee一直霸占着-关掉进程后也没辙-关掉后会自动开启新的进程" class="headerlink" title="在有些公司电脑上出于内部安全管理的原因,电脑上安装了McAfee,所以8081端口基本就算是废了,该端口会被McAfee一直霸占着,关掉进程后也没辙,关掉后会自动开启新的进程"></a>在有些公司电脑上出于内部安全管理的原因,电脑上安装了McAfee,所以8081端口基本就算是废了,该端口会被McAfee一直霸占着,关掉进程后也没辙,关掉后会自动开启新的进程</h5><h4 id="react-native默认的打包端口也是8081-这个时候-这个端口冲突会导致一系列奇奇怪怪的BUG-现在-让我们來一起解决下这个问题吧"><a href="#react-native默认的打包端口也是8081-这个时候-这个端口冲突会导致一系列奇奇怪怪的BUG-现在-让我们來一起解决下这个问题吧" class="headerlink" title="react-native默认的打包端口也是8081,这个时候,这个端口冲突会导致一系列奇奇怪怪的BUG,现在,让我们來一起解决下这个问题吧"></a>react-native默认的打包端口也是8081,这个时候,这个端口冲突会导致一系列奇奇怪怪的BUG,现在,让我们來一起解决下这个问题吧</h4><blockquote>
-<p>按照react-native 新建工程的流程,完成新建工作</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">react-native init newProj</div></pre></td></tr></table></figure>
-<blockquote>
-<p>在终端直接运行</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd newProj</div><div class="line">react-native run-ios</div></pre></td></tr></table></figure>
-<blockquote>
-<p>终端上面出现报错日志如下</p>
-</blockquote>
-<p><img src="http://ostglltzu.bkt.clouddn.com/17-7-18/23859563.jpg" alt="">    </p>
-<blockquote>
-<p>我们现在在Xcode中打开查看下报错的错误日志</p>
-</blockquote>
-<p><img src="http://ostglltzu.bkt.clouddn.com/17-7-18/43005869.jpg" alt=""></p>
-<blockquote>
-<p>可以看出来 是由于端口被占用导致的打包失败<br>现在我们开始来修改端口给react-native 换个port 搬个家吧</p>
-</blockquote>
-<ol>
-<li>首先修改Xcode内的管理端口的代码,我们来command+shift+f 全局搜索8081<br><img src="http://ostglltzu.bkt.clouddn.com/17-7-18/51946558.jpg" alt=""></li>
-<li>然后 我们全部将他们改为8083</li>
-<li>之后我们来看看React.xcodeproj 这个文件的脚本里面还藏着一个端口的信息呢<br><img src="http://ostglltzu.bkt.clouddn.com/17-7-18/40410071.jpg" alt=""></li>
-<li>现在我们再来研究下包里面的文件</li>
-<li><p>/RNProj/node_modules/react-native/local-cli/server/server.js 里面修改端口<br><img src="http://ostglltzu.bkt.clouddn.com/17-7-18/39777334.jpg" alt=""></p>
-</li>
-<li><p>/newProj/node_modules/react-native/Libraries/Core/Devtools/getDevServer.js 里面再来修改一个</p>
-</li>
-</ol>
-<p><img src="http://ostglltzu.bkt.clouddn.com/17-7-18/41350170.jpg" alt=""></p>
-<blockquote>
-<p>现在我们再来运行看看吧</p>
-</blockquote>
-<p><img src="http://ostglltzu.bkt.clouddn.com/17-7-18/7281702.jpg" alt=""></p>
-<h5 id="好了-已经成功运行了"><a href="#好了-已经成功运行了" class="headerlink" title="好了,已经成功运行了;"></a>好了,已经成功运行了;</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">react-native-cli: 2.0.1</div><div class="line">react-native: 0.46.4</div></pre></td></tr></table></figure>
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/07/18/react-native-8081端口被mcafee霸占后如何搬家/">
-    <time datetime="2017-07-18T09:07:53.000Z" class="entry-date">
-        2017-07-18
     </time>
 </a>
     
@@ -774,23 +599,23 @@
       <ul>
         
           <li>
+            <a href="/2017/09/05/常用指令备忘/">常用指令备忘</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/03/我的个人保障计划/">我的个人保障计划</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/02/linux-扩容-raspberry/">linux 扩容(raspberry)</a>
+          </li>
+        
+          <li>
             <a href="/2017/08/30/apple-开启ftp服务/">apple 开启ftp服务等乱七八糟的事儿</a>
           </li>
         
           <li>
             <a href="/2017/08/25/春风十里不如你-你全家才春风十里/">春风十里不如你?你全家才春风十里</a>
-          </li>
-        
-          <li>
-            <a href="/2017/08/25/在OC项目里面引入Swift文件/">在OC项目里面引入Swift文件</a>
-          </li>
-        
-          <li>
-            <a href="/2017/08/24/iOS启动过程中异常Crash/">iOS启动过程中异常Crash</a>
-          </li>
-        
-          <li>
-            <a href="/2017/08/23/iOS/">iOS一些控件细节设置</a>
           </li>
         
       </ul>

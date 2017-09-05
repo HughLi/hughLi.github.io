@@ -65,6 +65,231 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-常用指令备忘" class="post-常用指令备忘 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/09/05/常用指令备忘/">常用指令备忘</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/09/05/常用指令备忘/" data-id="cj777baco000klh2wb0n7a44t" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h3 id="ssh下的文件上传下载"><a href="#ssh下的文件上传下载" class="headerlink" title="ssh下的文件上传下载"></a>ssh下的文件上传下载</h3><p>1.把一台服务器上的文件 /home/ftp/pub/file1 直接传到本机器的当前目录下， </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#scp servername:/home/ftp/pub/file1 .</span></div></pre></td></tr></table></figure>
+<p>2.把本机上的文件 /tmp/file2 送到另一台机器的 /boot 目录下。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#scp /tmp/file2 servername:/boot</span></div></pre></td></tr></table></figure>
+<p>整个传送过程仍然是用 SSH 加密的。</p>
+<hr>
+<h3 id="tmux的使用"><a href="#tmux的使用" class="headerlink" title="tmux的使用"></a>tmux的使用</h3><p>按下 Ctrl-b 后的快捷键如下：</p>
+<h4 id="1-基础"><a href="#1-基础" class="headerlink" title="1.基础"></a>1.基础</h4><ul>
+<li>? 获取帮助信息</li>
+</ul>
+<h4 id="2-会话管理"><a href="#2-会话管理" class="headerlink" title="2.会话管理"></a>2.会话管理</h4><ul>
+<li>s 列出所有会话</li>
+<li>$ 重命名当前的会话</li>
+<li>d 断开当前的会话</li>
+</ul>
+<h4 id="3-窗口管理"><a href="#3-窗口管理" class="headerlink" title="3.窗口管理"></a>3.窗口管理</h4><ul>
+<li>c 创建一个新窗口</li>
+<li>, 重命名当前窗口</li>
+<li>w 列出所有窗口</li>
+<li>% 水平分割窗口</li>
+<li>“ 竖直分割窗口</li>
+<li>n 选择下一个窗口</li>
+<li>p 选择上一个窗口</li>
+<li>0~9 选择0~9对应的窗口</li>
+</ul>
+<h4 id="4-窗格管理"><a href="#4-窗格管理" class="headerlink" title="4.窗格管理"></a>4.窗格管理</h4><ul>
+<li>% 创建一个水平窗格</li>
+<li>“ 创建一个竖直窗格</li>
+<li>h 将光标移入左侧的窗格*</li>
+<li>j 将光标移入下方的窗格*</li>
+<li>l 将光标移入右侧的窗格*</li>
+<li>k 将光标移入上方的窗格*</li>
+<li>q 显示窗格的编号</li>
+<li>o 在窗格间切换</li>
+<li>} 与下一个窗格交换位置</li>
+<li>{ 与上一个窗格交换位置</li>
+<li>! 在新窗口中显示当前窗格</li>
+<li>x 关闭当前窗格</li>
+</ul>
+<h4 id="5-其他"><a href="#5-其他" class="headerlink" title="5.其他"></a>5.其他</h4><ul>
+<li>t 在当前窗格显示时间</li>
+</ul>
+<hr>
+<h3 id="npm相关问题"><a href="#npm相关问题" class="headerlink" title="npm相关问题"></a>npm相关问题</h3><blockquote>
+<p>最近搞源码编译,npm的报错烦死了,搞了好几天,最近看了下npm官网 迎刃而解了</p>
+</blockquote>
+<p><img src="http://ostglltzu.bkt.clouddn.com/17-9-5/48470274.jpg" alt=""></p>
+<blockquote>
+<p>可以使用以下三个选项之一解决此问题：</p>
+</blockquote>
+<h4 id="选项1：将权限更改为npm的默认目录"><a href="#选项1：将权限更改为npm的默认目录" class="headerlink" title="选项1：将权限更改为npm的默认目录"></a>选项1：将权限更改为npm的默认目录</h4><p>找到npm目录的路径：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm config get prefix</div></pre></td></tr></table></figure>
+<p>对于许多系统，目录是/usr/local。</p>
+<p>警告：如果显示的路径是正确的，请切换到选项2，否则您将会弄乱您的权限。</p>
+<p>将npm目录的所有者更改为当前用户的名称：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chown -R $(whoami) $(npm config get prefix)/&#123;lib/node_modules,bin,share&#125;</div></pre></td></tr></table></figure>
+<p>这改变了由NPM使用的子文件夹的权限和一些其他的工具（lib/node_modules，bin，和share）。</p>
+<h4 id="选项2：将npm的默认目录更改为另一个目录"><a href="#选项2：将npm的默认目录更改为另一个目录" class="headerlink" title="选项2：将npm的默认目录更改为另一个目录"></a>选项2：将npm的默认目录更改为另一个目录</h4><p>制作全局安装目录：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir ~/.npm-global</div></pre></td></tr></table></figure>
+<p>配置npm以使用新的目录路径：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm config <span class="built_in">set</span> prefix <span class="string">'~/.npm-global'</span></div></pre></td></tr></table></figure>
+<p>打开或创建一个~/.profile文件并添加以下行：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PATH=~/.npm-global/bin:<span class="variable">$PATH</span></div></pre></td></tr></table></figure></p>
+<p>回到命令行，更新你的系统变量：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">source</span> ~/.profile</div></pre></td></tr></table></figure>
+<p>测试：全局下载一个包，不使用sudo。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g jshint</div></pre></td></tr></table></figure>
+<p>您也可以使用相应的ENV变量（例如，如果您不想修改~/.profile），而不是步骤2-4 ：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NPM_CONFIG_PREFIX=~/.npm-global</div></pre></td></tr></table></figure>
+<h4 id="选项3：使用一个专门为您管理的软件包管理器-土豪专属"><a href="#选项3：使用一个专门为您管理的软件包管理器-土豪专属" class="headerlink" title="选项3：使用一个专门为您管理的软件包管理器(土豪专属)"></a>选项3：使用一个专门为您管理的软件包管理器(土豪专属)</h4><p>如果壕你在Mac OS上正在安装新的node，则可以使用Homebrew软件包管理器完全避免此问题。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install node</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="node-管理器-n-的使用"><a href="#node-管理器-n-的使用" class="headerlink" title="node 管理器 n 的使用"></a>node 管理器 n 的使用</h3><h3 id="n"><a href="#n" class="headerlink" title="n"></a>n</h3><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g n</div></pre></td></tr></table></figure>
+<p>安装完成之后，直接输入n后输出当前已经安装的node版本以及正在使用的版本（前面有一个o），你可以通过移动上下方向键来选择要使用的版本，最后按回车生效。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">n</div><div class="line">    0.10.1 </div><div class="line">    0.10.15 </div><div class="line">o   0.10.21 </div><div class="line">    0.11.8</div></pre></td></tr></table></figure>
+<p>安装最新版本</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">n latest</div></pre></td></tr></table></figure>
+<p>安装稳定版本</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">n stable</div></pre></td></tr></table></figure>
+<p>删除指定版本</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">n rm 0.10.1</div></pre></td></tr></table></figure>
+<p>指定node版本</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">n use 0.10.21 some.js</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>我有强迫症啊 非要使用VScode 不用不行么 还非要想装Lantern 不装不行么!!!</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/09/05/常用指令备忘/">
+    <time datetime="2017-09-05T03:50:51.000Z" class="entry-date">
+        2017-09-05
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-我的个人保障计划" class="post-我的个人保障计划 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/09/03/我的个人保障计划/">我的个人保障计划</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/09/03/我的个人保障计划/" data-id="cj777bacq000mlh2wewbze275" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h3 id="定期寿险"><a href="#定期寿险" class="headerlink" title="定期寿险:"></a>定期寿险:</h3><p>1.渤海人寿优选定期寿险</p>
+<h3 id="重疾险"><a href="#重疾险" class="headerlink" title="重疾险:"></a>重疾险:</h3><p>1.阳光人寿的阳光关爱e生 D款</p>
+<h3 id="意外险-医疗补充"><a href="#意外险-医疗补充" class="headerlink" title="意外险,医疗补充"></a>意外险,医疗补充</h3><p>安心综合医疗保险条款（2017版）（B款）</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/09/03/我的个人保障计划/">
+    <time datetime="2017-09-03T09:34:44.000Z" class="entry-date">
+        2017-09-03
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-linux-扩容-raspberry" class="post-linux-扩容-raspberry post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/09/02/linux-扩容-raspberry/">linux 扩容(raspberry)</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/09/02/linux-扩容-raspberry/" data-id="cj777bacf000clh2whqdwpqwy" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><p>1.查看当前使用情况</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo df -h</div></pre></td></tr></table></figure>
+<p>2.使用fdisk删除原来的linux分区</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"> $ sudo fdisk /dev/mmcblk0</div><div class="line">命令：按P（打印）</div><div class="line">你应该会看到三个分区，现在把分区2的信息写下来（/dev/mmcblk0p2）。</div><div class="line">命令：按d（删除分区2）</div><div class="line">命令：按p（打印）</div><div class="line">现在应该会看到2个分区</div><div class="line">命令：按n（加分区）</div><div class="line">选择P (主要)</div><div class="line">於分区2选择2</div><div class="line">第一空格输入原来分区2的开始位置</div><div class="line">最后的空格输入默认值</div><div class="line">命令：按p（打印）</div><div class="line">你应该會看到分区2填满所有空间</div><div class="line">命令：按w（保存）</div></pre></td></tr></table></figure>
+<p>3.重新启动</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$sudo</span> reboot</div></pre></td></tr></table></figure>
+<p>4.重新启动后，使用resize2fs来修复分区2</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ sudo resize2fs /dev/mmcblk0p2</div><div class="line">等待约2-3分钟</div><div class="line">$ sudo df -h</div><div class="line"> 重新查看分区使用情况</div></pre></td></tr></table></figure>
+<h3 id="一个小错误的修复"><a href="#一个小错误的修复" class="headerlink" title="一个小错误的修复"></a>一个小错误的修复</h3><p>使用<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-get install kali-linux-full</div></pre></td></tr></table></figure></p>
+<p>的时候,终端打印错误</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">dpkg: error processing python-pip(--remove):</div><div class="line"> Package is <span class="keyword">in</span> a very bad inconsistent state - you should</div><div class="line"> reinstall it before attempting a removal.</div><div class="line">Errors were encountered <span class="keyword">while</span> processing:</div><div class="line">python-pip</div></pre></td></tr></table></figure>
+<h3 id="一个大错误的修复"><a href="#一个大错误的修复" class="headerlink" title="一个大错误的修复"></a>一个大错误的修复</h3><p>由于没有正常的断开电源,linux系统启动后发现没法进入xwindow ,而且df -h 发现系统全部成为了read-only<br>经过google 发现使用fsck -y 修复有效,之后系统顺利进入</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/09/02/linux-扩容-raspberry/">
+    <time datetime="2017-09-02T02:03:34.000Z" class="entry-date">
+        2017-09-02
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-apple-开启ftp服务" class="post-apple-开启ftp服务 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -80,7 +305,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/30/apple-开启ftp服务/" data-id="cj6ztm78p0007542wh7zsxfha" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/30/apple-开启ftp服务/" data-id="cj777bac40006lh2wq3xiqack" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -98,7 +323,7 @@
 <ol>
 <li>格式化</li>
 </ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">1. 卸载盘</div><div class="line">为了防止在写入镜像的时候有其他读取或写入，我们需要卸载设备。如果有两个分区就都要卸载。</div><div class="line">umount /dev/sdb1</div><div class="line">umount /dev/sdb2</div><div class="line"></div><div class="line">2. 写入 </div><div class="line"></div><div class="line">sudo dd bs=4M <span class="keyword">if</span>=2013-09-25-wheezy-raspbian.img of=/dev/sdb</div><div class="line"></div><div class="line">bs  一次写入多大的块，(blocksize的缩写),</div><div class="line">4M  一般都没问题，如果不行，试试改成1M，</div><div class="line"><span class="keyword">if</span>  下载的镜像的路径（input file缩写），</div><div class="line">of  设备地址（output file的缩写)</div><div class="line"></div><div class="line">如果你非常想看到此时的拷贝进度,打开另一个命令窗口</div><div class="line">sudo pkill -USR1 -n -x dd</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">1. 卸载盘</div><div class="line">为了防止在写入镜像的时候有其他读取或写入，我们需要卸载设备。如果有两个分区就都要卸载。</div><div class="line">umount /dev/sdb1</div><div class="line">umount /dev/sdb2</div><div class="line"></div><div class="line">2. 格式化</div><div class="line">➜  ~ mkfs.[文件格式] [设备路径]</div><div class="line"></div><div class="line">mkfs         mkfs.cramfs  mkfs.ext3    mkfs.fat     mkfs.msdos</div><div class="line">mkfs.bfs     mkfs.ext2    mkfs.ext4    mkfs.minix   mkfs.vfat</div><div class="line"></div><div class="line">3. 写入 </div><div class="line"></div><div class="line">sudo dd bs=4M <span class="keyword">if</span>=2013-09-25-wheezy-raspbian.img of=/dev/sdb</div><div class="line"></div><div class="line">bs  一次写入多大的块，(blocksize的缩写),</div><div class="line">4M  一般都没问题，如果不行，试试改成1M，</div><div class="line"><span class="keyword">if</span>  下载的镜像的路径（input file缩写），</div><div class="line">of  设备地址（output file的缩写)</div><div class="line"></div><div class="line">如果你非常想看到此时的拷贝进度,打开另一个命令窗口</div><div class="line">sudo pkill -USR1 -n -x dd</div></pre></td></tr></table></figure>
       
     </div><!-- .entry-content -->
 
@@ -134,7 +359,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/25/春风十里不如你-你全家才春风十里/" data-id="cj6ztm79h000j542wr49vi32a" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/25/春风十里不如你-你全家才春风十里/" data-id="cj777bacr000olh2wyi13c728" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -183,7 +408,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/25/在OC项目里面引入Swift文件/" data-id="cj6ztm79i000l542wsk7aqzc0" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/25/在OC项目里面引入Swift文件/" data-id="cj777bacr000nlh2wdxbt6ujw" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -231,7 +456,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/24/iOS启动过程中异常Crash/" data-id="cj6ztm78y000b542wc56cmehk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/24/iOS启动过程中异常Crash/" data-id="cj777bacc000alh2wgh3dgaru" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -276,7 +501,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/23/iOS/" data-id="cj6ztm78v0009542w0xcas06y" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/23/iOS/" data-id="cj777bacb0009lh2wymu8z5sq" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -325,7 +550,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/20/吾家有女初长成/" data-id="cj6ztm79i000k542wf17q1pco" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/20/吾家有女初长成/" data-id="cj777bacp000llh2wdmkhhff6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -393,7 +618,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/18/iOS的一些常用知识/" data-id="cj6ztm78z000c542wg7nie34x" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/18/iOS的一些常用知识/" data-id="cj777bacg000dlh2w9nb92lcq" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -449,155 +674,6 @@
 
 
   
-    <article id="post-记录今天遇到的东西和开发中的技巧" class="post-记录今天遇到的东西和开发中的技巧 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/08/15/记录今天遇到的东西和开发中的技巧/">记录今天遇到的东西和开发中的技巧</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/15/记录今天遇到的东西和开发中的技巧/" data-id="cj6ztm79k000n542wh06hp11u" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><h3 id="1-登录页面逻辑设计"><a href="#1-登录页面逻辑设计" class="headerlink" title="1. 登录页面逻辑设计"></a>1. 登录页面逻辑设计</h3><ul>
-<li>有两种方法<ol>
-<li>主要是根据情况设置谁为window.rootViewcontroller的问题。在appdelegate.h文件中监听通知，登录与退出。在默认加载时window.rootViewcontroller 设置为登录的viewcontroller。当登录成功后发送通知，在appdelegate中接收通知，将修改window.rootViewController为uitabbarcontroller.相应的当退出时，发送退出通知，这时在appdelegate中接收到退出通知，将window.rootViewController设置为登录的viewcontroller.</li>
-<li>默认就设置uitabbarController为window.rootViewController.　在登录时使用presentviewcontroller弹出登录的viewcontroller.这样你看到的第一个视图就是登录的视图。当登录成功后dismiss登录viewcontroller，发通知重新reload tabbarcontroller 。退出时重新present登录窗口就可以了</li>
-</ol>
-</li>
-</ul>
-<h3 id="2-怎样连续dismiss2个ViewController"><a href="#2-怎样连续dismiss2个ViewController" class="headerlink" title="2. 怎样连续dismiss2个ViewController"></a>2. 怎样连续dismiss2个ViewController</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];</div></pre></td></tr></table></figure>
-<h3 id="3-NSJSONReadingMutableContainers等的含义"><a href="#3-NSJSONReadingMutableContainers等的含义" class="headerlink" title="3. NSJSONReadingMutableContainers等的含义"></a>3. NSJSONReadingMutableContainers等的含义</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&amp;error];</div><div class="line">NSJSONReadingMutableContainers = (1UL &lt;&lt; 0), // 返回的是一个可变数组或者字段</div><div class="line">NSJSONReadingMutableLeaves = (1UL &lt;&lt; 1), // 不仅返回的最外层是可变的, 内部的子数值或字典也是可变对象</div><div class="line">NSJSONReadingAllowFragments = (1UL &lt;&lt; 2) // 返回的最外侧可不是字典或者数组 可以是如 <span class="string">"10"</span></div></pre></td></tr></table></figure>
-<p>如果你不想返回一个可变的对象, 那么可以传入参数:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kNilOptions</div></pre></td></tr></table></figure>
-<h3 id="4-升级了ruby后遇到的坑"><a href="#4-升级了ruby后遇到的坑" class="headerlink" title="4. 升级了ruby后遇到的坑"></a>4. 升级了ruby后遇到的坑</h3><p>由于安装gollum 需要的ruby版本最低为2.2.0,所以使用rvm 把ruby升级了,后面就发现我的cocoapods不能使用了,报错如下</p>
-<p><img src="http://ostglltzu.bkt.clouddn.com/17-8-15/80796610.jpg" alt=""></p>
-<p>网上有坑爹的说是安装rails后会好,好个毛线,最后在新的路径下重装后好了</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">➜  ~ sudo gem install -n /usr/<span class="built_in">local</span>/bin cocoapods</div></pre></td></tr></table></figure>
-<h3 id="5-java-服务器相关"><a href="#5-java-服务器相关" class="headerlink" title="5. java 服务器相关"></a>5. java 服务器相关</h3><p>jar包运行命令</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar &lt;包名.jar&gt;</div></pre></td></tr></table></figure>
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/08/15/记录今天遇到的东西和开发中的技巧/">
-    <time datetime="2017-08-15T07:50:42.000Z" class="entry-date">
-        2017-08-15
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-一个小坑-block修饰词错误引发的时间浪费" class="post-一个小坑-block修饰词错误引发的时间浪费 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/08/14/一个小坑-block修饰词错误引发的时间浪费/">一个小坑--block修饰词错误引发的时间浪费 </a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/14/一个小坑-block修饰词错误引发的时间浪费/" data-id="cj6ztm794000h542wd6f7vyzc" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><p>报错如图:</p>
-<p><img src="http://ostglltzu.bkt.clouddn.com/17-8-14/10927584.jpg" alt=""></p>
-<p><img src="http://ostglltzu.bkt.clouddn.com/17-8-14/3479218.jpg" alt=""></p>
-<p>由于在之前的项目中直接把property给拖了一份到代码块,导致这次的这个错误,前后排查了block的循环引用,类文件头部包含等各种问题,最后实在没辙,经过亲友团的帮助发现这个坑,黄油手啊,🐽</p>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/08/14/一个小坑-block修饰词错误引发的时间浪费/">
-    <time datetime="2017-08-14T13:29:56.000Z" class="entry-date">
-        2017-08-14
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-十年之后山口山" class="post-十年之后山口山 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/08/13/十年之后山口山/">十年之后山口山</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/13/十年之后山口山/" data-id="cj6ztm79f000i542wfv4c0bbp" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><p>Mac也能玩wow 好吧 十年之后,我成了[天堂]的会长了,我也很无奈啊🤷‍♀️,谁叫你们全都没上线了呢….</p>
-<p><img src="http://ostglltzu.bkt.clouddn.com/17-8-14/38113519.jpg" alt=""></p>
-<p>花了十分钟,通关了冰冠堡垒,我能说啥呢,为啥5年前打8个小时都打不过<br><img src="http://ostglltzu.bkt.clouddn.com/17-8-14/80694385.jpg" alt=""><br><img src="http://ostglltzu.bkt.clouddn.com/17-8-14/81499034.jpg" alt=""></p>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/08/13/十年之后山口山/">
-    <time datetime="2017-08-13T14:38:28.000Z" class="entry-date">
-        2017-08-13
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
   
     <nav id="pagination">
       <nav id="page-nav">
@@ -627,23 +703,23 @@
       <ul>
         
           <li>
+            <a href="/2017/09/05/常用指令备忘/">常用指令备忘</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/03/我的个人保障计划/">我的个人保障计划</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/02/linux-扩容-raspberry/">linux 扩容(raspberry)</a>
+          </li>
+        
+          <li>
             <a href="/2017/08/30/apple-开启ftp服务/">apple 开启ftp服务等乱七八糟的事儿</a>
           </li>
         
           <li>
             <a href="/2017/08/25/春风十里不如你-你全家才春风十里/">春风十里不如你?你全家才春风十里</a>
-          </li>
-        
-          <li>
-            <a href="/2017/08/25/在OC项目里面引入Swift文件/">在OC项目里面引入Swift文件</a>
-          </li>
-        
-          <li>
-            <a href="/2017/08/24/iOS启动过程中异常Crash/">iOS启动过程中异常Crash</a>
-          </li>
-        
-          <li>
-            <a href="/2017/08/23/iOS/">iOS一些控件细节设置</a>
           </li>
         
       </ul>

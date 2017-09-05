@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://zimu.tk/2017/08/30/apple-开启ftp服务/index.html">
 <meta property="og:site_name" content="紫莯">
 <meta property="og:description" content="1234开启服务➜  ~ sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist关闭服务➜  ~ sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist Linux 下面解压.XZ .tar 等,并将SD卡格式化后写入 解压  123xz -">
-<meta property="og:updated_time" content="2017-08-30T09:05:43.000Z">
+<meta property="og:updated_time" content="2017-08-31T12:46:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="apple 开启ftp服务等乱七八糟的事儿">
 <meta name="twitter:description" content="1234开启服务➜  ~ sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist关闭服务➜  ~ sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist Linux 下面解压.XZ .tar 等,并将SD卡格式化后写入 解压  123xz -">
@@ -79,7 +79,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/30/apple-开启ftp服务/" data-id="cj6ztm78p0007542wh7zsxfha" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/30/apple-开启ftp服务/" data-id="cj777bac40006lh2wq3xiqack" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -97,7 +97,7 @@
 <ol>
 <li>格式化</li>
 </ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">1. 卸载盘</div><div class="line">为了防止在写入镜像的时候有其他读取或写入，我们需要卸载设备。如果有两个分区就都要卸载。</div><div class="line">umount /dev/sdb1</div><div class="line">umount /dev/sdb2</div><div class="line"></div><div class="line">2. 写入 </div><div class="line"></div><div class="line">sudo dd bs=4M <span class="keyword">if</span>=2013-09-25-wheezy-raspbian.img of=/dev/sdb</div><div class="line"></div><div class="line">bs  一次写入多大的块，(blocksize的缩写),</div><div class="line">4M  一般都没问题，如果不行，试试改成1M，</div><div class="line"><span class="keyword">if</span>  下载的镜像的路径（input file缩写），</div><div class="line">of  设备地址（output file的缩写)</div><div class="line"></div><div class="line">如果你非常想看到此时的拷贝进度,打开另一个命令窗口</div><div class="line">sudo pkill -USR1 -n -x dd</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">1. 卸载盘</div><div class="line">为了防止在写入镜像的时候有其他读取或写入，我们需要卸载设备。如果有两个分区就都要卸载。</div><div class="line">umount /dev/sdb1</div><div class="line">umount /dev/sdb2</div><div class="line"></div><div class="line">2. 格式化</div><div class="line">➜  ~ mkfs.[文件格式] [设备路径]</div><div class="line"></div><div class="line">mkfs         mkfs.cramfs  mkfs.ext3    mkfs.fat     mkfs.msdos</div><div class="line">mkfs.bfs     mkfs.ext2    mkfs.ext4    mkfs.minix   mkfs.vfat</div><div class="line"></div><div class="line">3. 写入 </div><div class="line"></div><div class="line">sudo dd bs=4M <span class="keyword">if</span>=2013-09-25-wheezy-raspbian.img of=/dev/sdb</div><div class="line"></div><div class="line">bs  一次写入多大的块，(blocksize的缩写),</div><div class="line">4M  一般都没问题，如果不行，试试改成1M，</div><div class="line"><span class="keyword">if</span>  下载的镜像的路径（input file缩写），</div><div class="line">of  设备地址（output file的缩写)</div><div class="line"></div><div class="line">如果你非常想看到此时的拷贝进度,打开另一个命令窗口</div><div class="line">sudo pkill -USR1 -n -x dd</div></pre></td></tr></table></figure>
       
     </div><!-- .entry-content -->
 
@@ -116,6 +116,8 @@
     
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2017/09/02/linux-扩容-raspberry/" rel="prev"><span class="meta-nav">←</span> linux 扩容(raspberry)</a></span>
     
     
         <span class="nav-next"><a href="/2017/08/25/春风十里不如你-你全家才春风十里/" rel="next">春风十里不如你?你全家才春风十里 <span class="meta-nav">→</span></a></span>
@@ -149,23 +151,23 @@
       <ul>
         
           <li>
+            <a href="/2017/09/05/常用指令备忘/">常用指令备忘</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/03/我的个人保障计划/">我的个人保障计划</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/02/linux-扩容-raspberry/">linux 扩容(raspberry)</a>
+          </li>
+        
+          <li>
             <a href="/2017/08/30/apple-开启ftp服务/">apple 开启ftp服务等乱七八糟的事儿</a>
           </li>
         
           <li>
             <a href="/2017/08/25/春风十里不如你-你全家才春风十里/">春风十里不如你?你全家才春风十里</a>
-          </li>
-        
-          <li>
-            <a href="/2017/08/25/在OC项目里面引入Swift文件/">在OC项目里面引入Swift文件</a>
-          </li>
-        
-          <li>
-            <a href="/2017/08/24/iOS启动过程中异常Crash/">iOS启动过程中异常Crash</a>
-          </li>
-        
-          <li>
-            <a href="/2017/08/23/iOS/">iOS一些控件细节设置</a>
           </li>
         
       </ul>

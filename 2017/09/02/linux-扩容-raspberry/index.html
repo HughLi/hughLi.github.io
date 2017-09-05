@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="人之一生如负重远行，欲速则不达" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>linux 扩容(raspberry) | 紫莯</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.查看当前使用情况 1$ sudo df -h 2.使用fdisk删除原来的linux分区 1234567891011121314 $ sudo fdisk /dev/mmcblk0命令：按P（打印）你应该会看到三个分区，现在把分区2的信息写下来（/dev/mmcblk0p2）。命令：按d（删除分区2）命令：按p（打印）现在应该会看到2个分区命令：按n（加分区）选择P (主要)於分区2选择2第">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux 扩容(raspberry)">
+<meta property="og:url" content="http://zimu.tk/2017/09/02/linux-扩容-raspberry/index.html">
+<meta property="og:site_name" content="紫莯">
+<meta property="og:description" content="1.查看当前使用情况 1$ sudo df -h 2.使用fdisk删除原来的linux分区 1234567891011121314 $ sudo fdisk /dev/mmcblk0命令：按P（打印）你应该会看到三个分区，现在把分区2的信息写下来（/dev/mmcblk0p2）。命令：按d（删除分区2）命令：按p（打印）现在应该会看到2个分区命令：按n（加分区）选择P (主要)於分区2选择2第">
+<meta property="og:updated_time" content="2017-09-04T00:51:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux 扩容(raspberry)">
+<meta name="twitter:description" content="1.查看当前使用情况 1$ sudo df -h 2.使用fdisk删除原来的linux分区 1234567891011121314 $ sudo fdisk /dev/mmcblk0命令：按P（打印）你应该会看到三个分区，现在把分区2的信息写下来（/dev/mmcblk0p2）。命令：按d（删除分区2）命令：按p（打印）现在应该会看到2个分区命令：按n（加分区）选择P (主要)於分区2选择2第">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="紫莯" rel="home">紫莯</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-linux-扩容-raspberry" class="post-linux-扩容-raspberry post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      linux 扩容(raspberry)
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/09/02/linux-扩容-raspberry/" data-id="cj777bacf000clh2whqdwpqwy" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><p>1.查看当前使用情况</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo df -h</div></pre></td></tr></table></figure>
+<p>2.使用fdisk删除原来的linux分区</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"> $ sudo fdisk /dev/mmcblk0</div><div class="line">命令：按P（打印）</div><div class="line">你应该会看到三个分区，现在把分区2的信息写下来（/dev/mmcblk0p2）。</div><div class="line">命令：按d（删除分区2）</div><div class="line">命令：按p（打印）</div><div class="line">现在应该会看到2个分区</div><div class="line">命令：按n（加分区）</div><div class="line">选择P (主要)</div><div class="line">於分区2选择2</div><div class="line">第一空格输入原来分区2的开始位置</div><div class="line">最后的空格输入默认值</div><div class="line">命令：按p（打印）</div><div class="line">你应该會看到分区2填满所有空间</div><div class="line">命令：按w（保存）</div></pre></td></tr></table></figure>
+<p>3.重新启动</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$sudo</span> reboot</div></pre></td></tr></table></figure>
+<p>4.重新启动后，使用resize2fs来修复分区2</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ sudo resize2fs /dev/mmcblk0p2</div><div class="line">等待约2-3分钟</div><div class="line">$ sudo df -h</div><div class="line"> 重新查看分区使用情况</div></pre></td></tr></table></figure>
+<h3 id="一个小错误的修复"><a href="#一个小错误的修复" class="headerlink" title="一个小错误的修复"></a>一个小错误的修复</h3><p>使用<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-get install kali-linux-full</div></pre></td></tr></table></figure></p>
+<p>的时候,终端打印错误</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">dpkg: error processing python-pip(--remove):</div><div class="line"> Package is <span class="keyword">in</span> a very bad inconsistent state - you should</div><div class="line"> reinstall it before attempting a removal.</div><div class="line">Errors were encountered <span class="keyword">while</span> processing:</div><div class="line">python-pip</div></pre></td></tr></table></figure>
+<h3 id="一个大错误的修复"><a href="#一个大错误的修复" class="headerlink" title="一个大错误的修复"></a>一个大错误的修复</h3><p>由于没有正常的断开电源,linux系统启动后发现没法进入xwindow ,而且df -h 发现系统全部成为了read-only<br>经过google 发现使用fsck -y 修复有效,之后系统顺利进入</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/09/02/linux-扩容-raspberry/">
+    <time datetime="2017-09-02T02:03:34.000Z" class="entry-date">
+        2017-09-02
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2017/09/03/我的个人保障计划/" rel="prev"><span class="meta-nav">←</span> 我的个人保障计划</a></span>
+    
+    
+        <span class="nav-next"><a href="/2017/08/30/apple-开启ftp服务/" rel="next">apple 开启ftp服务等乱七八糟的事儿 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/05/常用指令备忘/">常用指令备忘</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/03/我的个人保障计划/">我的个人保障计划</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/02/linux-扩容-raspberry/">linux 扩容(raspberry)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/30/apple-开启ftp服务/">apple 开启ftp服务等乱七八糟的事儿</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/25/春风十里不如你-你全家才春风十里/">春风十里不如你?你全家才春风十里</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2017 Hugh Lee
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
