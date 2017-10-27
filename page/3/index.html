@@ -65,6 +65,312 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-iOS-设置布局起始" class="post-iOS-设置布局起始 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/08/08/iOS-设置布局起始/">iOS 设置布局起始</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/08/iOS-设置布局起始/" data-id="cj9a080pp00088dfyfhyf4u5r" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><ul>
+<li></li>
+</ul>
+<ol>
+<li><figure class="highlight plain"><figcaption><span>= NO；``` 禁用掉自动设置的内边距，自行控制controller上index为0的控件以及scrollview控件的位置</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">2. ```self.edgesForExtendedLayout = UIExtendedEdgeNone;```这种方式设置，不需要再重新设置index为0的控件的位置以及scrollview的位置，（0，0）默认的依然是从导航栏下面开始算起</div><div class="line"></div><div class="line">[相关说明链接](http://www.vinqon.com/codeblog/?detail/11109)</div><div class="line"></div><div class="line">3. masonry 布局新方法</div><div class="line"></div><div class="line">```sh</div><div class="line">make.width.mas_lessThanOrEqualTo().offset()</div></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/08/08/iOS-设置布局起始/">
+    <time datetime="2017-08-08T03:58:35.000Z" class="entry-date">
+        2017-08-08
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-CoreML-和TensorFlow的安装运行" class="post-CoreML-和TensorFlow的安装运行 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/08/07/CoreML-和TensorFlow的安装运行/">CoreML 和TensorFlow的安装运行</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/07/CoreML-和TensorFlow的安装运行/" data-id="cj9a080pb00018dfyv0hn63mo" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h3 id="1-CoreML-Apple训练模型测试"><a href="#1-CoreML-Apple训练模型测试" class="headerlink" title="1. CoreML Apple训练模型测试"></a>1. CoreML Apple训练模型测试</h3><ol>
+<li>先下载下来.mlmodel文件并拖入工程中<p><a href="https://developer.apple.com/machine-learning/" target="_blank" rel="external">下载链接</a></p><br><p><img src="http://ostglltzu.bkt.clouddn.com/17-8-7/2674477.jpg" alt=""></p><br><mark>此处要注意 ,如果没有出现上图Model Class的箭头需要勾选下图内容<mark><p><img src="http://ostglltzu.bkt.clouddn.com/17-8-7/71022914.jpg" alt=""></p></mark></mark></li>
+<li>导入CoreML库文件<br><img src="http://ostglltzu.bkt.clouddn.com/17-8-7/51996763.jpg" alt=""></li>
+<li>编写代码<br><img src="http://ostglltzu.bkt.clouddn.com/17-8-7/64366435.jpg" alt=""></li>
+</ol>
+<h3 id="2-TensorFlow-安装"><a href="#2-TensorFlow-安装" class="headerlink" title="2. TensorFlow 安装"></a>2. TensorFlow 安装</h3><p>我使用的是容器安装的方式</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$ sudo easy_install pip  <span class="comment"># 如果还没有安装 pip</span></div><div class="line">$ sudo pip install --upgrade virtualenv</div><div class="line"></div><div class="line">$ virtualenv --system-site-packages ~/tensorflow</div><div class="line">$ <span class="built_in">cd</span> ~/tensorflow</div><div class="line"></div><div class="line">$ <span class="built_in">source</span> bin/activate  <span class="comment"># 如果使用 bash zsh 等</span></div><div class="line"></div><div class="line">$ pip install --upgrade tensorflow       ＃<span class="keyword">for</span> Python 2.7</div><div class="line"> $ pip3 install --upgrade tensorflow      ＃<span class="keyword">for</span> Python 3.n</div></pre></td></tr></table></figure>
+<p>安装完成</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/08/07/CoreML-和TensorFlow的安装运行/">
+    <time datetime="2017-08-07T08:41:28.000Z" class="entry-date">
+        2017-08-07
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-React-Native-备忘" class="post-React-Native-备忘 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/08/04/React-Native-备忘/">React-Native 备忘</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/08/04/React-Native-备忘/" data-id="cj9a080pg00058dfy3itvxcin" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><ol>
+<li>在react-native的标签内使用<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">`...<span class="variable">$&#123;...&#125;</span>`</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>模板没有效果</p>
+<ol>
+<li>报错<br><img src="http://ostglltzu.bkt.clouddn.com/17-8-4/52097411.jpg" alt="img"></li>
+</ol>
+<p>解决办法:在FlatList 标签内添加</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;FlistList</div><div class="line">keyExtractor=&#123;this._keyExtractor&#125;</div><div class="line">/&gt;</div><div class="line"><span class="keyword">function</span>   _keyExtractor = (item,index) =&gt; item.id;</div></pre></td></tr></table></figure>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/08/04/React-Native-备忘/">
+    <time datetime="2017-08-04T01:41:39.000Z" class="entry-date">
+        2017-08-04
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-npm-使用方法备忘" class="post-npm-使用方法备忘 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/07/28/npm-使用方法备忘/">npm 使用方法备忘</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/28/npm-使用方法备忘/" data-id="cj9a080pw000d8dfyttgcujzi" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h3 id="npm-降级"><a href="#npm-降级" class="headerlink" title="npm 降级"></a>npm 降级</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install npm@version --save</div></pre></td></tr></table></figure>
+<p>查询node 地址 </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">where</span> node</div></pre></td></tr></table></figure>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/07/28/npm-使用方法备忘/">
+    <time datetime="2017-07-28T01:19:44.000Z" class="entry-date">
+        2017-07-28
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-react-native开发相关备忘" class="post-react-native开发相关备忘 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/07/25/react-native开发相关备忘/">react-native开发相关备忘</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/25/react-native开发相关备忘/" data-id="cj9a080q1000i8dfykm99e4we" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h3 id="三方库"><a href="#三方库" class="headerlink" title="三方库"></a>三方库</h3><ol>
+<li>UI组件  <a href="https://github.com/react-native-community/react-native-elements" target="_blank" rel="external">react-native-elements</a></li>
+<li>导航栏  <a href="https://reactnavigation.org" target="_blank" rel="external">React Navigation</a></li>
+<li>UI组件 <a href="https://github.com/GeekyAnts/NativeBase" target="_blank" rel="external">NativeBase</a></li>
+</ol>
+<h3 id="技术文章"><a href="#技术文章" class="headerlink" title="技术文章"></a>技术文章</h3><ol>
+<li><a href="http://www.jianshu.com/p/2f575cc35780" target="_blank" rel="external">react-navigation使用技巧</a></li>
+<li><a href="http://www.jianshu.com/p/4d14bd41dff3" target="_blank" rel="external">翻译|React-navigation导航系统</a></li>
+<li><a href="https://talk.ninghao.net/t/hao-ge-ke-yi-fen-xiang-xia-ni-de-atom-snippetsyao/3626" target="_blank" rel="external">宁皓网atom snippets</a></li>
+</ol>
+<h3 id="终端小彩蛋"><a href="#终端小彩蛋" class="headerlink" title="终端小彩蛋"></a>终端小彩蛋</h3><blockquote>
+<p>使用brew 安装 </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1. brew install ls</div><div class="line">2. brew install cowsay</div><div class="line">3. brew install cmatrix</div><div class="line">4. brew install fortune</div></pre></td></tr></table></figure>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/07/25/react-native开发相关备忘/">
+    <time datetime="2017-07-25T13:11:25.000Z" class="entry-date">
+        2017-07-25
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-Pod-search-找不到库的解决方案" class="post-Pod-search-找不到库的解决方案 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/07/21/Pod-search-找不到库的解决方案/">Pod search 找不到库的解决方案</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/21/Pod-search-找不到库的解决方案/" data-id="cj9a080pe00038dfyt7jnlkw5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <script src="/assets/js/APlayer.min.js"> </script><p>报错如下<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[!] Unable to find a pod with name, author, summary, or description matching `AFNetworking</div></pre></td></tr></table></figure></p>
+<p>删除本地目录后修复<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm ~/Library/Caches/CocoaPods/search_index.json</div></pre></td></tr></table></figure></p>
+<p> 使用cocoapods的时候，当cocoapods更新到新的版本的时候，pod install 会报此cocoapods没有满足的版本，要求更新cocoapods，应该是本地缓存的问题，在这里记录一下解决办法，方便以后查找。</p>
+<ul>
+<li>移除本地master</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo rm -fr ~/.cocoapods/repos/master</div></pre></td></tr></table></figure>
+<ul>
+<li>移除本地缓存</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo rm -fr ~/Library/Caches/CocoaPods/</div></pre></td></tr></table></figure>
+<ul>
+<li>重新setup,如果网速较慢,可以在后面加上 –verbose</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod setup</div></pre></td></tr></table></figure>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/07/21/Pod-search-找不到库的解决方案/">
+    <time datetime="2017-07-21T01:12:02.000Z" class="entry-date">
+        2017-07-21
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-Python-在Mac-上的多版本管理及pip安装" class="post-Python-在Mac-上的多版本管理及pip安装 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -80,7 +386,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/20/Python-在Mac-上的多版本管理及pip安装/" data-id="cj777babx0004lh2wnum562vy" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/20/Python-在Mac-上的多版本管理及pip安装/" data-id="cj9a080pe00048dfy7ngeucfm" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -179,7 +485,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/19/MacOS-系统加载项禁用/" data-id="cj777babw0002lh2w5s9oq37d" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/19/MacOS-系统加载项禁用/" data-id="cj9a080pd00028dfyy2ds91nb" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -328,7 +634,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/18/react-native-8081端口被mcafee霸占后如何搬家/" data-id="cj777back000glh2w5ajur4ih" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/18/react-native-8081端口被mcafee霸占后如何搬家/" data-id="cj9a080q2000j8dfyhvkstyfb" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -404,7 +710,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/16/今天写点啥呢-随便写点吧/" data-id="cj777bacn000jlh2w8ql8ur8n" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/16/今天写点啥呢-随便写点吧/" data-id="cj9a080q5000m8dfyentagyxx" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -435,160 +741,10 @@
 
 
   
-    <article id="post-JenKins在线打包坑点总结" class="post-JenKins在线打包坑点总结 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/07/16/JenKins在线打包坑点总结/">JenKins在线打包坑点总结</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/16/JenKins在线打包坑点总结/" data-id="cj777babu0001lh2wqout1s34" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><h4 id="JenKins-iOS在线打包-坑点备忘"><a href="#JenKins-iOS在线打包-坑点备忘" class="headerlink" title="JenKins iOS在线打包 坑点备忘"></a>JenKins iOS在线打包 坑点备忘</h4><h5 id="1-证书配置"><a href="#1-证书配置" class="headerlink" title="1. 证书配置"></a>1. 证书配置</h5><pre><code>1. 文件配置中的版本号要和Xcode所描述的版本号完全一致
-2. 设置的provision_profile 是在线平台给配置的,在配置的时候是平台使用平台上面的证书预先为项目申请了bundleID 所以BundleID 和provision_profile都将是由平台提供
-3. 项目所能支持的最低的iOS版本是要和Xcode上面的完全一致
-4. 目前公司的在线打包平台所配置的对文件结构有比较严格的要求,要求运行包必须在包里面.XCodeProj也就是SVN/Git的文件目录为/Proj/Proj/.xCodeProj...
-5. 自动签名需要关闭,不然会导致签名失败
-</code></pre><h4 id="2-打包apk报错信息"><a href="#2-打包apk报错信息" class="headerlink" title="2. 打包apk报错信息"></a>2. 打包apk报错信息</h4><blockquote>
-<p>Check dependencies<br>[BEROR]XXXX has conflicting provisioning settings. XXXX is automatically signed, but provisioning profile XXXXXX has been manually specified. Set the provisioning profile value to “Automatic” in the build settings editor, or switch to manual signing in the project editor.<br>[BEROR]Code signing is required for product type ‘Application’ in SDK ‘iOS 10.0’<br>[BEROR]Code signing is required for product type ‘Application’ in SDK ‘iOS 10.0’</p>
-</blockquote>
-<p>报错原因为没有取消自动获取签名的选项</p>
-<blockquote>
-<p>clang: error: linker command failed with exit code 1 (use -v to see invocation)<br>Ld build/XXXXX.build/Release-iphoneos/XXXXX.build/Objects-normal/armv7/XXXXX normal armv7<br>    cd /Users/Bone/.jenkins/jobs/XXXXX_iOS_Release/workspace/tmp<br>    export IPHONEOS_DEPLOYMENT_TARGET=6.0<br>    export PATH=”/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin”<br>    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch armv7 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk -L/Users/Bone/.jenkins/jobs/XXXXX_iOS_Release/workspace/tmp/build/Release-iphoneos -L/Users/Bone/.jenkins/jobs/XXXXX_iOS_Release/workspace/tmp/XXXXX/ThirdPart/libWeiboSDK -L/Users/Bone/.jenkins/jobs/XXXXX_iOS_Release/workspace/tmp/XXXXX/ThirdPart/ZBarSDK -L/Users/Bone/.jenkins/jobs/XXXXX_iOS_Release/workspace/tmp/XXXXX/ThirdPart/WeChatSDK -F/Users/Bone/.jenkins/jobs/XXXXX_iOS_Release/workspace/tmp/build/Release-iphoneos -F/Users/Bone/.jenkins/jobs/XXXXX_iOS_Release/workspace/tmp/XXXXX/lib -F/Users/Bone/.jenkins/jobs/XXXXX_iOS_Release/workspace/tmp/XXXXX -filelist /Users/Bone/.jenkins/jobs/XXXXX_iOS_Release/workspace/tmp/build/XXXXX.build/Release-iphoneos/XXXXX.build/Objects-normal/armv7/XXXXX.LinkFileList -Xlinker -rpath -Xlinker </p>
-</blockquote>
-<p>报错原因:没有正确配置项目所能支持的最低iOS版本号,该项错误可以获取到.ipa文件,但是.ipa文件的文件大小特别的小</p>
-<blockquote>
-<p>所有的配置都要做到仔细检查防止在最后打包的时候,不能成功获取到.ipa文件;在打包的时候 需要特别注意打包的文件生成顺序,一般说来会优先生成我们的.app文件,然后才是.ipa文件,目前的jenkins平台生成的ipa文件为两个 外加source文件的备份,一共会有4个文件生成.</p>
-</blockquote>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/07/16/JenKins在线打包坑点总结/">
-    <time datetime="2017-07-16T10:27:28.000Z" class="entry-date">
-        2017-07-16
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-iOS安全培训" class="post-iOS安全培训 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/07/13/iOS安全培训/">iOS安全培训</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/13/iOS安全培训/" data-id="cj777bacd000blh2w4ndd6m8q" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><h3 id="iOS-安全"><a href="#iOS-安全" class="headerlink" title="iOS 安全"></a>iOS 安全</h3><h4 id="非越狱状态的安全程度"><a href="#非越狱状态的安全程度" class="headerlink" title="非越狱状态的安全程度"></a>非越狱状态的安全程度</h4><h4 id="越狱情况下的安全程度"><a href="#越狱情况下的安全程度" class="headerlink" title="越狱情况下的安全程度"></a>越狱情况下的安全程度</h4><h4 id="安全开发Tips"><a href="#安全开发Tips" class="headerlink" title="安全开发Tips"></a>安全开发Tips</h4><hr>
-<h5 id="在非越狱状况下我们能做什么？"><a href="#在非越狱状况下我们能做什么？" class="headerlink" title="在非越狱状况下我们能做什么？"></a>在非越狱状况下我们能做什么？</h5><p>固件级别：设备秘钥 ，组秘钥 ，Apple根证书<br>        加密引擎 ， 内核（安全加密芯片，安全元件）</p>
-<p>软件：文件系统 ， 操作系统分区 ，用户分区 ，sandbox</p>
-<p>越狱后 可以修改底层的东西</p>
-<hr>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/07/13/iOS安全培训/">
-    <time datetime="2017-07-13T01:59:28.000Z" class="entry-date">
-        2017-07-13
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="post-hello-world post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/07/06/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://zimu.tk/2017/07/06/hello-world/" data-id="cj777bac60007lh2wh29cfnet" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <script src="/assets/js/APlayer.min.js"> </script><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=484058255&auto=1&height=66"></iframe>
-
-<p>聽說程序猿都要寫點blog啥的,<br>今天自己搭了一個,那就寫點吧,<br>寫點啥呢?</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hello world!!</div></pre></td></tr></table></figure>
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/07/06/hello-world/">
-    <time datetime="2017-07-06T00:02:07.000Z" class="entry-date">
-        2017-07-06
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
   
     <nav id="pagination">
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+        <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
       </nav>
     </nav>
   
@@ -614,23 +770,23 @@
       <ul>
         
           <li>
-            <a href="/2017/09/05/常用指令备忘/">常用指令备忘</a>
+            <a href="/2017/10/25/新的一些知识盲区扫盲/">新的一些知识盲区扫盲</a>
           </li>
         
           <li>
-            <a href="/2017/09/03/我的个人保障计划/">我的个人保障计划</a>
+            <a href="/2017/09/21/raspberry常见问题整理-部分为linux常见病/">raspberry常见问题整理(部分为linux常见病)</a>
           </li>
         
           <li>
-            <a href="/2017/09/02/linux-扩容-raspberry/">linux 扩容(raspberry)</a>
+            <a href="/2017/09/20/scrapy入坑指南/">scrapy入坑指南</a>
           </li>
         
           <li>
-            <a href="/2017/08/30/apple-开启ftp服务/">apple 开启ftp服务等乱七八糟的事儿</a>
+            <a href="/2017/09/13/一些坑点小节/">一些坑点小节</a>
           </li>
         
           <li>
-            <a href="/2017/08/25/春风十里不如你-你全家才春风十里/">春风十里不如你?你全家才春风十里</a>
+            <a href="/2017/09/08/pi-vim编辑器打造/">pi vim编辑器打造</a>
           </li>
         
       </ul>
